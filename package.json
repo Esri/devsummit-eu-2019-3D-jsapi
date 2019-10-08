@@ -1,0 +1,11 @@
+{
+  "name": "presentation-template",
+  "version": "0.0.0",
+  "description": "Template",
+  "dependencies": {
+    "reveal-md": "^3.0.4"
+  },
+  "scripts": {
+    "serve": "npx reveal-md src/presentation.md  --css src/css/rewrite.css -w"
+  }
+}
