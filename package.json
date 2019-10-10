@@ -1,11 +1,11 @@
 {
-  "name": "presentation-template",
-  "version": "0.0.0",
-  "description": "Template",
+  "name": "presentation",
+  "private": true,
   "dependencies": {
-    "reveal-md": "^3.0.4"
+    "reveal-md": "^3.1.0"
   },
   "scripts": {
-    "serve": "npx reveal-md src/presentation.md  --css src/css/rewrite.css -w"
+    "start": "reveal-md . -w",
+    "dist": "reveal-md . --static dist --port 1949 --absolute-url https://jsapi.dev/2019-11-devsummit-eu-presentations"
   }
 }
