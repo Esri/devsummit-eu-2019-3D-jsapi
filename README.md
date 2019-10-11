@@ -16,15 +16,15 @@ Please, don't push anything to this repo as this is the template.
 
 https://www.esri.com/en-us/about/events/devsummit-europe/agenda/agenda
 
-### What's New
+[### What's New](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/whats-new.md)
 
-### Getting Started with 3D
+[### Getting Started with 3D](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/getting-started-with-3d.md)
 
-### Working with Your Data with the Feature Layer
+[### Working with Your Data with the Feature Layer](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/feature-layer.md)
 
-### Building Interactive 3D Web Apps Using Open Data
+[### Building Interactive 3D Web Apps Using Open Data](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/building-web-apps.html)
 
-### Using Animations
+[### Using Animations](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/using-animations.md)
 
 ## Run locally
 
