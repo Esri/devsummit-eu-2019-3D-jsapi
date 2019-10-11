@@ -33,7 +33,7 @@ map.layers.add(buildingsLayer);
 
   </div>
   <div class="right-column">
-    <iframe id="go-to-demo" data-src="./samples/newyork-getting-started.html" ></iframe>
+    <iframe id="go-to-demo" data-src="./samples/berlin-3d" ></iframe>
   </div>
 </div>
 
