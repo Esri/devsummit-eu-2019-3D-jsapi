@@ -5,5 +5,5 @@
   "highlightTheme": "railscasts",
   "css": "style.css",
   "template": "template.html",
-  "staticDirs": "images,prism,samples"
+  "staticDirs": "talks/images,talks/prism,talks/samples"
 }
