@@ -6,6 +6,6 @@
   },
   "scripts": {
     "start": "reveal-md presentations/ -w",
-    "dist": "reveal-md presentations/ --static dist --port 1949 --absolute-url https://jsapi.dev/2019-11-devsummit-eu-presentations"
+    "dist": "reveal-md presentations/ --static dist --port 1949 --absolute-url https://jsapi.dev/2019-11-devsummit-eu-presentations && cp README.md dist/README.md"
   }
 }
