@@ -32,47 +32,60 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 ![Logo](images/esri-logo.png)
 </script></section><section  data-markdown><script type="text/template">
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
 
-### Add SceneLayer
-
-<div class="two-columns">
-  <div class="left-column">
-
-<div class="code-snippet">
-<button class="play" id="addSceneLayerButton"></button>
-<pre><code class="lang-ts">// Add layer showing housing density in NYC
-var buildingsLayer = new SceneLayer({
-  portalItem: {
-    id: "2e0761b9a4274b8db52c4bf34356911e"
-  }
-});
-map.layers.add(buildingsLayer);
-</code></pre>
-</div>
-
-  </div>
-  <div class="right-column">
-    <iframe id="go-to-demo" data-src="./samples/newyork-getting-started.html" ></iframe>
-  </div>
-</div>
+## Earthquakes
 </script></section><section  data-markdown><script type="text/template">
-## Primitive (Basic) Types
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
 
-- `boolean`, `number`, `string`, `[]`, `{}`
-- `any`
+Visualize
 
-```ts
-type Foo = number;
+![Overview](images/earthquakes/overview.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
 
-const foo: Foo = 8;
-const bar: string = "Lorem ipsum";
+Client-side Queries
 
-// Here be dragons
-const waldo: any = {
-  doStuff: (things: any) => something
-};
-```</script></section></div>
+![Overview](images/earthquakes/client-side-filtering.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+
+## City Visualizations
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+2D Data
+
+![Overview](images/2d-buildings/data.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Extrude Buildings
+
+![Overview](images/2d-buildings/extrusion.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Use WebStyle Symbols
+
+![Overview](images/2d-buildings/3d-symbols.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Extrude Building Heights
+
+![Overview](images/2d-buildings/extrusion-with-height.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+
+## 3D Building Models
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Airport Sketch
+
+![Overview](images/3d-buildings/sketch.png)
+</script></section></div>
     </div>
 
     <script src="./js/reveal.js"></script>
