@@ -1,14 +1,14 @@
+<!-- .slide: data-background="images/bg-1.png" data-title="add-scene-layer" class="title" -->
 
-<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+# <span style="font-size: 0.8em;">ArcGIS API for JavaScript</span><br>Building Interactive 3D Web Apps Using Open Data
 
-
-### Building Interactive 3D Web Apps Using Open Data
 
 Jochen Manegold, Esri Germany \
 Arno Fiva, Esri R&D Center Zürich
 
+ESRI EUROPEAN DEVELOPER SUMMIT​
 
-Note: Intro
+![Logo](images/esri-logo.png)
 
 ---
 
