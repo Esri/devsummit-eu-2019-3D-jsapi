@@ -4,15 +4,15 @@
 
 https://www.esri.com/en-us/about/events/devsummit-europe/agenda/agenda
 
-### [What's New](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/whats-new.md)
+### [What's New](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/whats-new.html)
 
-### [Getting Started with 3D](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/getting-started-with-3d.md)
+### [Getting Started with 3D](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/getting-started-with-3d.html)
 
-### [Working with Your Data with the Feature Layer](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/feature-layer.md)
+### [Working with Your Data with the Feature Layer](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/feature-layer.html)
 
 ### [Building Interactive 3D Web Apps Using Open Data](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/building-web-apps.html)
 
-### [Using Animations](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/using-animations.md)
+### [Using Animations](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/using-animations.html)
 
 ## Run locally
 
