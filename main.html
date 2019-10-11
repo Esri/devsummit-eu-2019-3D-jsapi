@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>European Developer Summit 2019: ArcGIS API for JavaScript Presentations</title>
+    <meta property="og:title" content="European Developer Summit 2019: ArcGIS API for JavaScript Presentations" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://jsapi.dev/2019-11-devsummit-eu-presentations/featured-slide.jpg" />
+    <meta property="og:url" content="https://jsapi.dev/2019-11-devsummit-eu-presentations" />
+    <meta name="description" content="European Developer Summit 2019: ArcGIS API for JavaScript Presentations">
+    <meta property="og:description" content="European Developer Summit 2019: ArcGIS API for JavaScript Presentations">
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/white.css" id="theme" />
+    <!-- <link rel="stylesheet" href="./css/highlight/railscasts.css" /> -->
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/style.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+
+
+### Building Interactive 3D Web Apps Using Open Data
+
+Jochen Manegold, Esri Germany \
+Arno Fiva, Esri R&D Center Zürich
+
+
+<aside class="notes"><p>Intro</p>
+</aside></script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+
+## Earthquakes
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Visualize
+
+![Overview](images/earthquakes/overview.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Client-side Queries
+
+![Overview](images/earthquakes/client-side-filtering.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+
+## City Visualizations
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+2D Data
+
+![Overview](images/2d-buildings/data.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Extrude Buildings
+
+![Overview](images/2d-buildings/extrusion.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Use WebStyle Symbols
+
+![Overview](images/2d-buildings/3d-symbols.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Extrude Building Heights
+
+![Overview](images/2d-buildings/extrusion-with-height.png)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
+
+## 3D Building Models
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+
+Airport Sketch
+
+![Overview](images/3d-buildings/sketch.png)
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        // { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true },
+        { src: './prism/plugin.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"none","backgroundTransition":"none","width":1366,"height":768}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+
+      // Define default background
+      for (var slide of document.getElementsByTagName('section')){
+        if (!(slide.getAttribute('data-background') ||
+              slide.getAttribute('data-background-video') ||
+              slide.getAttribute('data-background-iframe') ||
+              slide.getAttribute('data-background-image'))){
+          slide.setAttribute('data-background', 'images/bg-2.png');
+          slide.setAttribute('data-background-image', 'images/bg-2.png');
+        }
+      }
+    </script>
+  </body>
+</html>
