@@ -1,7 +1,7 @@
 {
   "title": "European Developer Summit 2019: ArcGIS API for JavaScript Presentations",
   "assetsDir": "assets",
-  "theme": "white",
+  "theme": "black",
   "highlightTheme": "railscasts",
   "css": "style.css",
   "template": "template.html",
