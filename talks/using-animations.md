@@ -14,44 +14,15 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### Add SceneLayer
+### Agenda
 
-<div class="two-columns">
-  <div class="left-column">
-
-<div class="code-snippet">
-<button class="play" id="addSceneLayerButton"></button>
-<pre><code class="lang-ts">// Add layer showing housing density in NYC
-var buildingsLayer = new SceneLayer({
-  portalItem: {
-    id: "2e0761b9a4274b8db52c4bf34356911e"
-  }
-});
-map.layers.add(buildingsLayer);
-</code></pre>
-</div>
-
-  </div>
-  <div class="right-column">
-    <iframe id="go-to-demo" data-src="./samples/newyork-getting-started.html" ></iframe>
-  </div>
-</div>
-
----
-
-## Primitive (Basic) Types
-
-- `boolean`, `number`, `string`, `[]`, `{}`
-- `any`
-
-```ts
-type Foo = number;
-
-const foo: Foo = 8;
-const bar: string = "Lorem ipsum";
-
-// Here be dragons
-const waldo: any = {
-  doStuff: (things: any) => something
-};
-```
+* Built-in API capabilities (Y)
+  * Water
+  * `view.goTo()` / `slide.apply()`
+  * Promises
+* Custom animation + libraries
+  * Daylight using `requestAnimationFrame()` (Y)
+  * 3D Symbols using [anime.js](https://animejs.com/) (A, plane airport approach)
+  * Camera paths (A, fly along Berlin wall)
+  * Line geometry (A, Cyclades sailing route)
+* Three.js as an external renderer (Y)
