@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    html, body, #viewDiv {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .esri-ui-bottom-left.esri-ui-corner {
+      width: 100%;
+      text-align: center;
+    }
+
+    .esri-ui-bottom-left.esri-ui-corner button {
+      margin: auto;
+    }
+  </style>
+
+  <link rel="stylesheet" href="//js.arcgis.com/4.13/esri/css/main.css">
+  <script src="//js.arcgis.com/4.13/"></script>
+
+
+  <title>Change lighting</title>
+</head>
+<body>
+  <script>
+
+
+    require([
+      "esri/WebScene",
+      "esri/views/SceneView",
+      "dojo/domReady!"
+    ], function(WebScene, SceneView) {
+      var scene = new WebScene({
+        portalItem: {
+          portal: "http://zrh.mapsdevext.arcgis.com",
+          id: "6aec3ee02ca645278e5002cf5db3f82b"
+        }
+      });
+      var view = new SceneView({
+        container: "viewDiv",
+        map: scene
+      });
+
+      window["view"] = view;
+
+      var button = document.createElement("button");
+      button.appendChild(document.createTextNode("Phénakisticope me!"));
+
+      var now = new Date("Fri Nov 8 2019 9:00:00 GMT+0100");
+      
+      function nextStep() {
+          now.setHours(now.getHours() + 1);
+          view.environment.lighting.date = now;
+      }
+
+      button.onclick = nextStep;
+
+      view.ui.add(button, "bottom-leading");
+    });
+
+
+  </script>
+  <div id="viewDiv"></div>
+</body>
+</html>
