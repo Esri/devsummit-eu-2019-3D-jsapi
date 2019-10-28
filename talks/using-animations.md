@@ -29,55 +29,94 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" data-state="slide-animation-title" data-transition="zoom-in slide-out" -->
 
-# Animation
+<h1 id="animation" style="font-size: 500%;">Animation</h1>
 
-From Latin _animationem_: successive drawings to create an illusion of movement.
+From Latin _`animationem`_: <span id="letters">successive</span> drawings to create an illusion of movement.
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade" -->
 
 ### Type of animations:
 
-- Animate UI element (CSS) <small>_not covered_</small>
-- **Animate camera**
-- Animate scene's elements
-    + **Visual variables _(colors, positions, ...)_**
-    + 3D texture <small>_not covered_</small>
-    + **3D environment properties**
-    + 3D geometries <small>_partially covered_</small>
-    + **Full 3D animations** <small>_extension_</small>
+<ul>
+<li>Animate UI element (CSS) <small><em>not covered</em></small></li>
+<li><strong>Animate camera</strong></li>
+<li>Animate scene's elements
+    <ul>
+    <li class="fragment"><strong>Visual variables <em>(colors, positions, ...)</em></strong></li>
+    <li class="fragment">3D texture <small><em>not covered</em></small></li>
+    <li class="fragment"><strong>3D environment properties</strong></li>
+    <li class="fragment">3D geometries <small><em>partially covered</em></small></li>
+    <li class="fragment"><strong>Full 3D animations</strong> <small><em>extension</em></small></li>
+</ul>
+</li>
+</ul>
 
 ---
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-# 1. Built-in API capabilities
+<h1 style="font-size: 500%;border: 5px solid white; border-radius: 100%;     width: 220px;height: 100px;padding-bottom: 120px; margin: auto; margin-bottom: 50px; box-shadow:1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191, 1px 18px 6px rgba(16,16,16,0.4), 1px 22px 10px rgba(16,16,16,0.2), 1px 25px 35px rgba(16,16,16,0.2), 1px 30px 60px rgba(16,16,16,0.4);background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);" class="letter3d number appear">1</h1>
+
+<h1 id="built-in-api-capabilities" style="text-shadow: 2px 5px 15px rgba(0,0,0,0.5);">Built-in API capabilities</h1>
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade"-->
 
-The `view` provides a function `goTo` that interpolates the camera between to point in the view. 
-
----
-
-## [`SceneView.goTo`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo)
-
-- Animate camera between current viewpoint and a target: `goTo(target[, options]): Promise`
-- A number of diffent targets are supported: `[lon, lat]`, `Camera`, `Geometry`, `Geometry[]`, `Graphic`, `Graphic[]`
-- Besides target, allows specifying desired `scale`, `center`, `position` (camera), `heading` and `tilt`
-- Return a promise that resolves when animation is done.
+<div style="font-size: 300%; margin-top: -302px;">
+<span class="big-code" style="margin-left: -307px;">view.goTo(</span><span class="big-code">)</span>
+</div>
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade"-->
 
-## Promise
+<div style="font-size: 300%;">
+<span class="big-code">view.goTo(</span><code style="font-size: 100%;">target</code><span class="big-code">)</span>
+</div>
+<div style="position: absolute; font-size: 200%;">
+    <code style="font-size: 100%;" class="fragment">[lon, lat]</code><br>
+    <code style="font-size: 100%;" class="fragment">Camera</code><br>
+    <code style="font-size: 100%;" class="fragment">Geometry</code><br>
+    <code style="font-size: 100%;" class="fragment">Graphic</code><br>
+    <span class="fragment"><code style="font-size: 100%;">scale</code>, <code style="font-size: 100%;">center</code>, <code style="font-size: 100%;">position (camera)</code>, <code style="font-size: 100%;">heading</code> or <code style="font-size: 100%;">tilt</code></span>
 
-TBD
+</div>
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade-in zoom-out"-->
+
+<div style="font-size: 300%;margin-left: -120px;">
+<span class="big-code">view.goTo(</span><code style="font-size: 100%;">target</code><span class="big-code">).then(...)</span>
+</div>
+<div style="position: absolute; font-size: 200%; opacity: 0.5;">
+    <code style="font-size: 100%;">[lon, lat]</code><br>
+    <code style="font-size: 100%;">Camera</code><br>
+    <code style="font-size: 100%;">Geometry</code><br>
+    <code style="font-size: 100%;">Graphic</code><br>
+    <span><code style="font-size: 100%;">scale</code>, <code style="font-size: 100%;">center</code>, <code style="font-size: 100%;">position (camera)</code>, <code style="font-size: 100%;">heading</code> or <code style="font-size: 100%;">tilt</code></span>
+
+</div>
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade-in"-->
+
+## A promise
+
+<div class="code-snippet" style="font-size: 300%;">
+      <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
+Promise.then(function (data) {
+    // when it goes well...
+}, function (error) {
+    // when it is rejected...
+});
+</code></pre></div>
 
 ---
 
