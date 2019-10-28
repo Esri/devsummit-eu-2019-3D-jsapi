@@ -484,6 +484,8 @@ updateAnimationAt(step);
   </div>
 </div>
 
+---
+
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 ## So, what can you animate with it?
@@ -491,7 +493,6 @@ updateAnimationAt(step);
 - Renderer
 - Visual variables
 - ...
-
 
 ---
 
