@@ -66,10 +66,18 @@ The `view` provides a function `goTo` that interpolates the camera between to po
 
 ## [`SceneView.goTo`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo)
 
-- Camera control work horse: `goTo(target[, options]): Promise`
+- Animate camera between current viewpoint and a target: `goTo(target[, options]): Promise`
 - A number of diffent targets are supported: `[lon, lat]`, `Camera`, `Geometry`, `Geometry[]`, `Graphic`, `Graphic[]`
 - Besides target, allows specifying desired `scale`, `center`, `position` (camera), `heading` and `tilt`
-- Animates! (by default)
+- Return a promise that resolves when animation is done.
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+## Promise
+
+TBD
 
 ---
 
@@ -270,6 +278,14 @@ slide.applyTo(view, {
     <iframe id="frame-go-to-animation-options" data-src="./samples/using-animations/08-go-to-animation-options.html" style="padding: 0; min-width: 400px; width: 100%; max-width: 90%; height: 100%;" allowfullscreen="true" frameborder="0"></iframe>
   </div>
 </div>
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+## [`Water`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo)
+
+TBD
 
 ---
 
