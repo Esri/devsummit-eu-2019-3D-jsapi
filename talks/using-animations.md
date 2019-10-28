@@ -22,7 +22,7 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
   * Water
 * 2. Custom animation + libraries
   * Daylight using `requestAnimationFrame()` (Y)
-  * 3D Symbols using [anime.js](https://animejs.com/) (A, plane airport approach)
+  * 3D Symbols using [anime.js](https://animejs.com/) (A, plane airport approach)<<<<<<< HEAD
   * Camera paths (A, fly along Berlin wall)
   * Line geometry (A, Cyclades sailing route)
 * 3. External renderer (Y)
@@ -220,11 +220,42 @@ updateAnimationAt(step);
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### Libraries
+### Libraries: Use anime.js for 3D Symbols
 
-...
+<div class="two-columns">
+  <div class="left-column">
 
----
+<div class="code-snippet">
+<button class="play" id="addSceneLayerButton"></button>
+<pre><code class="lang-ts">anime.timeline({
+  autoplay: false,
+  targets: point,
+  loop: true,
+  duration: 5000,
+  update: function() {
+    plane.geometry = point.clone();
+  }
+})
+.add({
+  ...pointB,
+  easing: "linear",
+})
+.add({
+  z: 0,
+  easing: "easeOutSine",
+}, 0)
+.add({
+  ...pointC,
+  easing: "easeOutSine",
+});
+</code></pre>
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe id="go-to-demo" data-src="./samples/berlin-airport" ></iframe>
+  </div>
+</div>
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
@@ -240,3 +271,8 @@ updateAnimationAt(step);
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 # 3. External Renderers
+=======
+  * Camera paths (A, fly along Berlin wall, `geometryEngine.generalize`, splines, interpolate)
+  * Line geometry (A, Cyclades sailing route, query geometry, add points to geometry)
+* Three.js as an external renderer (Y)
+
