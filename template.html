@@ -92,6 +92,41 @@
           slide.setAttribute('data-background-image', 'images/bg-2.png');
         }
       }
+
+      Reveal.addEventListener('ready', function(event) {
+        addEventListener("message", function(event) {
+          if (event.data && event.data.type === "fullscreen") {
+            if (document.webkitCurrentFullScreenElement) {
+              document.webkitExitFullscreen();
+              return
+            }
+            var iframes = document.querySelectorAll("iframe");
+            for (var i = 0; i < iframes.length; i++) {
+              var iframe = iframes[i];
+              if (iframe.contentWindow === event.source) {
+                iframe.webkitRequestFullscreen();
+                return;
+              }
+            }
+          }
+        });
+
+        var playButtons = document.querySelectorAll('[data-play-frame]');
+
+        for (var i = 0; i < playButtons.length; i++) {
+          playButtons[i].addEventListener('click', (function(frameName, argument) {
+            return function(event) {
+              event.stopPropagation();
+              event.preventDefault();
+              window.frames[frameName].contentWindow.postMessage({ play: true, argument: argument }, '*');
+            };
+          })(playButtons[i].getAttribute('data-play-frame'), playButtons[i].getAttribute("data-play-argument")));
+          playButtons[i].addEventListener('mousedown', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+          });
+        }
+      });
     </script>
   </body>
 </html>

@@ -382,16 +382,16 @@ section.title > * > img {
    max-width: 30%;
  }
 
- .reveal .snippet {
+ .reveal .code-snippet {
    position: relative;
    margin-right: 50px;
  }
 
- /*.reveal .twos .snippet {
+ /*.reveal .twos .code-snippet {
    flex-grow: 1;
  }
  */
- .reveal .snippet .play-code {
+ .reveal .code-snippet .play-code {
    position: absolute;
    right: 12px;
    top: 12px;
@@ -400,7 +400,7 @@ section.title > * > img {
    cursor: pointer;
  }
 
- .reveal .snippet .play-code:hover path {
+ .reveal .code-snippet .play-code:hover path {
    fill: #fff;
  }
 
@@ -409,11 +409,11 @@ section.title > * > img {
    width: auto;
  }
 
- .reveal .twos .snippet {
+ .reveal .twos .code-snippet {
    display: flex;
  }
 
- .reveal .twos .snippet pre {
+ .reveal .twos .code-snippet pre {
    display: flex;
  }
 
@@ -724,15 +724,15 @@ section.title > * > img {
    min-height: 389px;
  }
 
- .reveal .snippet {
+ .reveal .code-snippet {
    position: relative;
  }
 
- .reveal .twos .snippet {
+ .reveal .twos .code-snippet {
    flex-grow: 0;
  }
 
- .reveal .snippet .play-code {
+ .reveal .code-snippet .play-code {
    position: absolute;
    right: 12px;
    top: 12px;
@@ -741,16 +741,17 @@ section.title > * > img {
    cursor: pointer;
  }
 
- .reveal .snippet .play-code:hover path {
+ .reveal .code-snippet .play-code:hover path {
    fill: #fff;
  }
 
- .reveal .twos .snippet {
+ .reveal .twos .code-snippet {
    display: flex;
  }
 
- .reveal .twos .snippet pre {
+ .reveal .twos .code-snippet pre {
    display: flex;
+   width: 100%;
  }
 
  .reveal .twos pre {
