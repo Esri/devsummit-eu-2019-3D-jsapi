@@ -46,8 +46,8 @@ From Latin _animationem_: successive drawings to create an illusion of movement.
 - Animate scene's elements
     + **Visual variables _(colors, positions, ...)_**
     + 3D texture <small>_not covered_</small>
-    + **3D environment variables**
-    + 3D shapes <small>_partially covered_</small>
+    + **3D environment properties**
+    + 3D geometries <small>_partially covered_</small>
     + **Full 3D animations** <small>_extension_</small>
 
 ---
@@ -55,6 +55,12 @@ From Latin _animationem_: successive drawings to create an illusion of movement.
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 # 1. Built-in API capabilities
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+The `view` provides a function `goTo` that interpolates the camera between to point in the view. 
 
 ---
 
@@ -92,7 +98,7 @@ using vanilla javascript or libraries.
         </div>
     </div>
     <div class="snippet-preview">
-      <iframe id="code-snippet-3" data-src="./samples/01-snippet-daylight-click.html" scrolling="no" style="overflow: hidden;padding: 0; min-width: 400px;" frameborder="0"></iframe>
+      <iframe id="code-snippet-3" data-src="./samples/using-animations/01-snippet-daylight-click.html" scrolling="no" style="overflow: hidden;padding: 0; min-width: 400px;" frameborder="0"></iframe>
     </div>
 </div>
 
@@ -106,7 +112,7 @@ Using javascript built-in timing functions:
 
 <div class="code-snippet" style="font-size: 130%;width: auto; margin: auto; float: none;">
         <pre>
-            <code style="padding: 20px 50px;" class="lang-js">
+            <code style="padding: 0px 50px;" class="lang-js">
 ...
 setInterval(nextStep, 200);
             </code>
@@ -117,7 +123,7 @@ Or...
 
 <div class="code-snippet" style="font-size: 130%;float: none;">
         <pre>
-            <code style="padding: 20px 50px;" class="lang-js">
+            <code style="padding: 0px 50px;" class="lang-js">
 function nextStep() {
     ...
     setTimeout(nextStep, 0);
@@ -165,7 +171,8 @@ setTimeout(nextStep, 0);
     <div>
         <div class="code-snippet" style="max-width: 600px; font-size: 130%;float: none;">
             <pre>
-            <code style="padding: 50px;" class="lang-js">
+            <code style="padding: 0" class="lang-js">
+                <br><br><br>
     ...
     const startTime = new Date().getTime();
     <br>
@@ -178,11 +185,14 @@ setTimeout(nextStep, 0);
     }
     // start:
     window.requestAnimationFrame(nextStep);
+    <br>
+    <br>
+    <br>
             </code></pre>
         </div>
     </div>
     <div class="snippet-preview">
-      <iframe id="code-snippet-2" data-src="./samples/02-snippet-daylight-animation.html" scrolling="no" style="overflow: hidden;padding: 0; min-width: 400px;margin-top: 0;" frameborder="0"></iframe>
+      <iframe id="code-snippet-2" data-src="./samples/using-animations/02-snippet-daylight-animation.html" scrolling="no" style="overflow: hidden;padding: 0; min-width: 600px;margin-top: 0;" frameborder="0"></iframe>
     </div>
 </div>
 
