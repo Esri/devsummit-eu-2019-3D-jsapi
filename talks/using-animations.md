@@ -22,9 +22,9 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
   * Water
 * 2. Custom animation + libraries
   * Daylight using `requestAnimationFrame()` (Y)
-  * 3D Symbols using [anime.js](https://animejs.com/) (A, plane airport approach)<<<<<<< HEAD
-  * Camera paths (A, fly along Berlin wall)
-  * Line geometry (A, Cyclades sailing route)
+  * 3D Symbols using [anime.js](https://animejs.com/) (A, plane airport approach)
+  * Camera paths (A, fly along Berlin wall, `geometryEngine.generalize`, splines, interpolate)
+  * Line geometry (A, Cyclades sailing route, query geometry, add points to geometry)
 * 3. External renderer (Y)
 
 ---
@@ -498,8 +498,5 @@ updateAnimationAt(step);
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 # 3. External Renderers
-=======
-  * Camera paths (A, fly along Berlin wall, `geometryEngine.generalize`, splines, interpolate)
-  * Line geometry (A, Cyclades sailing route, query geometry, add points to geometry)
-* Three.js as an external renderer (Y)
+
 
