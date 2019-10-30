@@ -487,6 +487,22 @@ updateAnimationAt(step);
 
 ---
 
+<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
+
+# Animating: 3D Symbols
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+## Animation Libraries
+
+[https://animejs.com/](https://animejs.com/) <!-- .element: class="fragment" -->
+
+<iframe src="https://animejs.com/documentation/#loop" class="fragment">
+
+---
+
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 ### Libraries: Use anime.js for 3D Symbols
@@ -528,6 +544,12 @@ updateAnimationAt(step);
 
 ---
 
+<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
+
+# Animating: Camera Paths
+
+---
+
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 ### Camera Path
@@ -566,6 +588,20 @@ updateAnimationAt(step);
     <iframe id="berlin-wall-camera-path-generalize" data-src="./samples/berlin-wall-camera-path/generalize" ></iframe>
   </div>
 </div>
+
+---
+
+<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
+
+# Animating: 3D Lines
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+## Sailing Route
+
+<iframe data-src="./samples/cycladecontours" class="fragment">
 
 ---
 
