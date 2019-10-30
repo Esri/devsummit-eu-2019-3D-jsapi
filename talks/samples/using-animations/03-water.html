@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    html, body, #viewDiv {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #clock {
+      width: 220px;
+      height: 220px;
+      box-shadow: none;
+    }
+    .esri-attribution {
+      display: none!important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="//js.arcgis.com/4.13/esri/css/main.css">
+  <script src="//js.arcgis.com/4.13/"></script>
+
+
+  <title>Change lighting</title>
+</head>
+<body>
+  <script>
+
+
+    require([
+      "esri/WebScene",
+      "esri/views/SceneView",
+      "dojo/domReady!"
+    ], function(WebScene, SceneView) {
+
+      var scene = new WebScene({
+        portalItem: {
+          portal: "https://zurich.maps.arcgis.com",
+          id: "dce5e184f9814c9c80d72dfd9b9dc997"
+        }
+      });
+      var view = new SceneView({
+        qualityProfile: "high",
+        container: "viewDiv",
+        map: scene,
+        environment: {
+          lighting: {
+            directShadowsEnabled: true
+          },
+          atmosphere: {
+            quality: "high"
+          }
+        },
+        ui: {}
+      });
+
+      // debug:
+      window["view"] = view;
+
+      view.ui.empty("top-left");
+      view.ui.empty("bottom");
+
+      window.addEventListener("message", function(m) {
+        if (m.data && m.data.play) {
+          
+        }
+      }, false);
+    });
+
+
+  </script>
+  <div id="viewDiv"></div>
+</body>
+</html>
