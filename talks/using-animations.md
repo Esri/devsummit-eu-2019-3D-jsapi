@@ -33,7 +33,7 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 <h1 id="animation" style="font-size: 500%;">Animation</h1>
 
-From Latin _`animationem`_: <span id="letters">successive</span> drawings to create an illusion of movement.
+<span id="letters">Successive</span> drawings to create an illusion of movement.
 
 ---
 
