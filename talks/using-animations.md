@@ -16,16 +16,13 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 ### Agenda
 
-* 1. Built-in API Capabilities (Y)
-  * `view.goTo()` / `slide.apply()`
-  * Promises
-  * Water
-* 2. Custom Animations
-  * `requestAnimationFrame()` (Y)
+1. Built-in API Capabilities
+2. Custom Animations
+  * Pure Javascript's Technics
   * Animation Libraries
   * Interpolation
   * Smooth Lines
-* 3. External renderer (Y)
+3. External renderer
 
 ---
 
@@ -37,23 +34,20 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade" -->
+<!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" data-transition="fade" -->
 
-### Type of animations:
-
-<ul>
-<li>Animate UI element (CSS) <small><em>not covered</em></small></li>
-<li><strong>Animate camera</strong></li>
-<li>Animate scene's elements
-    <ul>
-    <li class="fragment"><strong>Visual properties <em>(colors, positions, ...)</em></strong></li>
-    <li class="fragment">3D texture <small><em>not covered</em></small></li>
-    <li class="fragment"><strong>3D environment properties</strong></li>
-    <li class="fragment">3D geometries <small><em>partially covered</em></small></li>
-    <li class="fragment"><strong>Full 3D animations</strong> <small><em>extension</em></small></li>
+<div style="font-size: 1.8em; font-weight: bold; text-align: left; margin-left:25%;">
+<p style="opacity: 0.8; font-weight: normal;"><span style="font-weight: lighter;opacity: 0.5;">Animate</span> UI elements</p>
+<p><span style="font-weight: lighter;opacity: 0.5;">Animate the</span> Camera</p>
+<p><span style="font-weight: lighter;opacity: 0.5;">Animate</span> Scene's elements
+    <ul style="font-size: 0.7em;">
+    <li class="fragment fade-in">Visual properties <em style="opacity: 0.8; font-weight: normal;font-size: 80%;">(colors, positions, ...)</em></li>
+    <li class="fragment fade-in" style="opacity: 0.8; font-weight: normal;">3D texture</li>
+    <li class="fragment fade-in">3D environment properties</li>
+    <li class="fragment fade-in">3D geometries</small></li>
 </ul>
-</li>
-</ul>
+</p>
+</div>
 
 ---
 
@@ -236,7 +230,7 @@ layer.queryFeatures(query)
  <svg data-play-frame="frame-go-to-graphics" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
   </div>
   <div class="snippet-preview">
-    <iframe id="frame-go-to-graphics" data-src="./samples/using-animations/06-go-to-graphics.html" style="overflow: hidden;padding: 0; min-width: 400px;" frameborder="0"></iframe>
+    <iframe id="frame-go-to-graphics" data-src="./samples/using-animations/06-go-to-graphics.html" style="overflow: hidden;padding: 0; min-width: 400px; max-width: 80%; width: 80%;" frameborder="0"></iframe>
   </div>
 </div>
 
@@ -281,10 +275,51 @@ view.on("double-click", (event: any) => {
 
 <!-- .slide: data-background-iframe="./samples/using-animations/03-water.html"-->
 
+## [`WaterSymbol3DLayer`](https://developers.arcgis.com/javascript/latest/api-reference/esri-symbols-WaterSymbol3DLayer.html)
 
-<!-- <iframe id="go-to-demo" data-src="./samples/using-animations/03-water.html" ></iframe> -->
-
-## [`Water`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo)
+<div class="fragment" id="menu">
+  <p>Wave direction</p>
+    <input
+      type="range"
+      name="waveDirection"
+      value="50"
+      min="0"
+      max="360"
+      id="direction"
+    />
+    <p>Wave strength</p>
+    <div style="text-align: left; margin-left: 100px; font-size: 0.8em;">
+      <input
+        type="radio"
+        name="waveStrengthRadio"
+        value="calm"
+        id="calm"
+      /><label for="calm">Calm</label><br />
+      <input
+        type="radio"
+        name="waveStrengthRadio"
+        value="rippled"
+        id="rippled"
+      /><label for="rippled">Rippled</label><br />
+      <input
+        type="radio"
+        name="waveStrengthRadio"
+        value="slight"
+        id="slight"
+      /><label for="slight">Slight</label><br />
+      <input
+        type="radio"
+        name="waveStrengthRadio"
+        value="moderate"
+        id="moderate"
+        checked
+      /><label for="moderate">Moderate</label><br />
+    </div>
+    <p>Dominant color</p>
+    <button id="navy" class="color-btn"></button>
+    <button id="green" class="color-btn"></button>
+    <button id="turqoise" class="color-btn"></button>
+</div>
 
 ---
 
@@ -302,7 +337,7 @@ In this section, the idea is to...
 
 ### Update _some_ parameters at a defined time steps
 
-using vanilla javascript or libraries.
+using pure Javascript or libraries.
 
 ---
 
@@ -644,71 +679,49 @@ Translation & Easing
 
 ---
 
-## When to use external renderers?
+## Eearth Magnetic Field (APL)
 
-Eearth Magnetic Field (APL)
-
-<video height="450px" autoplay="yes" controls="yes" loop="yes">
-  <source data-src="./movies/earth-magnetic-field.mp4" type="video/mp4"/>
-</video>
+<iframe id="frame-velocity-flow" data-src="http://richiecarmichael.github.io/mag/index.html"></iframe>
 
 https://github.com/richiecarmichael/Esri-Earth-Magnetic-Field
-http://richiecarmichael.github.io/mag/index.html
+
 
 ---
 
-## When to use external renderers?
-
-Earthquakes (APL)
+## Earthquakes (APL)
 
 <video height="450px" autoplay="yes" controls="yes" loop="yes">
-  <source data-src="./movies/earth-quakes.mp4" type="video/mp4"/>
+  <source data-src="./images/animations/earth-quakes.mp4" type="video/mp4"/>
 </video>
 
 https://github.com/richiecarmichael/Esri-Quake-Map
-http://richiecarmichael.github.io/quake/index.html
 
 ---
 
-## Basic concepts and API
+## Basic concepts
 
-- Main interface: `require("esri/views/3d/externalRenderers")`
+<!-- https://developers.arcgis.com/javascript/latest/api-reference/esri-views-3d-externalRenderers.html -->
 
-TBD
-
-https://developers.arcgis.com/javascript/latest/api-reference/esri-views-3d-externalRenderers.html
-
-<!---
-
-## Hands-on, render coordinate system
-
-<div class="twos">
-  <div class="snippet">
-  <pre><code class="lang-ts hljs typescript">
-
-// Get the 3D coordinate transform (4x4 matrix)
-// at a map point
-const transform = externalRenderers
-    .renderCoordinateTransformAt(
-      view,
-
-      // Map point
-      [point.x, point.y, point.z],
-
-      // Spatial reference of the point
-      point.spatialReference,
-
-      // Optional: pre-allocated output array
-      null
-    );
+<pre style="font-size: 0.8em"><code class="lang-js hljs typescript">
+require([
+  "esri/views/3d/externalRenderers"
+], function(externalRenderers) {
+  var myExternalRenderer = {
+    setup: function(context) {
+      // Executed once after the external renderer is added to a view.
+    },
+    render: function(context) {
+      // Executed in every frame to draw geometry to the canvas:
+      // * Update the state of dynamic resources
+      // * Set the WebGL state as needed for rendering
+      // * Issue WebGL draw calls
+    }
+  };
+  // ...
+  externalRenderers.add(view, myExternalRenderer);
+  // ...
+});
 </code></pre>
-  <!--<svg data-play-frame="frame-basic-render-coordinate-system" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
-  </div>
-  <div class="snippet-preview">
-    <iframe id="frame-basic-render-coordinate-system" data-src="./snippets/snippet.html?01-basic-render-coordinate-system"></iframe>
-  </div>
-</div>
--->
 
 ---
 
@@ -718,101 +731,57 @@ const transform = externalRenderers
 - Use a higher level abstraction
 - three.js is a popular 3D rendering library for WebGL
 
-<a href="https://threejs.org/"><img title="https://threejs.org/" src="./images/threejs.png" width="50%" height="50%"/></a>
+<a href="https://threejs.org/"><img title="https://threejs.org/" src="./images/animations/threejs.png" width="50%" height="50%"/></a>
 
 (https://threejs.org/)
-
----
-
-## Hands-on, three.js &mdash; Renderer integration
-
-<div class="twos">
-  <div class="snippet">
-  <pre><code class="lang-ts hljs typescript">
-const geometry =
-  new THREE.BoxBufferGeometry(size, size, size);
-
-const material =
-  new THREE.MeshPhongMaterial({ color: "#00f" });
-
-const m = new THREE.Mesh(geometry, material);
-
-const transform = new THREE.Matrix4();
-
-externalRenderers.renderCoordinateTransformAt(
-  view,
-  [location.x, location.y, location.z],
-  location.spatialReference,
-  transform.elements
-);
-
-transform.decompose(m.position, m.quaternion,
-  m.scale);
-
-scene.add(m);
-externalRenderers.requestRender(view);
-</code></pre>
-  <svg data-play-frame="frame-basic-threejs" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
-  </div>
-  <div class="snippet-preview">
-    <iframe id="frame-basic-threejs" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/snippets/snippet.html?04-basic-threejs"></iframe>
-  </div>
-</div>
 
 ---
 
 ## Hands-on, three.js &mdash; Animations
 
 <div class="twos">
-  <div class="snippet">
-  <pre><code class="lang-ts hljs typescript">
+  <div class="code-snippet">
+    <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
 const loader = new THREE.ColladaLoader();
-
+<br>
 loader.load("./model.dae", (m: any) => {
   for (const anim of m.animations) {
     const keyAnim = new THREE.KeyFrameAnimation(anim);
-
+<br>
     keyAnim.loop = false;
     keyAnim.play(0);
-
+<br>
     animations.push(keyAnim);
   }
 });
-
+<br>
 // ...
-
+<br>
 animations.forEach(anim => anim.update(timestep));
-</code></pre>
-  <svg data-play-frame="frame-threejs-loader-animations" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
+    </code></pre>
+    <svg data-play-frame="frame-threejs-loader-animations" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
   </div>
   <div class="snippet-preview">
-    <iframe id="frame-threejs-loader-animations" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/snippets/snippet.html?05-threejs-loader-animations"></iframe>
+    <iframe id="frame-threejs-loader-animations" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/extending-3d-engine/snippets/snippet.html?05-threejs-loader-animations" style="overflow: hidden;padding: 0; min-width: 400px; max-width: 80%; width: 80%; height" frameborder="0"></iframe>
   </div>
 </div>
 
 ---
 
-## Demos, custom data driven graphics rendering
+## Demos
 
-<a href="https://developers.arcgis.com/javascript/latest/sample-code/scene-external-renderer/index.html"><img width="50%" src="./images/windmills.png"/></a>
-
-(https://developers.arcgis.com/javascript/latest/sample-code/scene-external-renderer/index.html)
+<iframe data-src="https://developers.arcgis.com/javascript/latest/sample-code/scene-external-renderer/live/index.html" frameborder="0"></iframe>
 
 ---
 
-## Demos, advanced data visualization
+## Demos
 
-<div class="snippet-preview">
-  <iframe id="frame-velocity-flow" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/snippets/snippet.html?07-velocity-flow&console=no"></iframe>
-</div>
+
+<iframe id="frame-velocity-flow" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/extending-3d-engine/snippets/snippet.html?07-velocity-flow&console=no"></iframe>
 
 ---
 
 ## Summary
-
-- Know when to use external renderers and its cost
-- Look at samples, use three.js to simplify development
-- Make awesome animations!
 
 ---
 
