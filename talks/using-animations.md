@@ -16,15 +16,15 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 ### Agenda
 
-* 1. Built-in API capabilities (Y)
+* 1. Built-in API Capabilities (Y)
   * `view.goTo()` / `slide.apply()`
   * Promises
   * Water
-* 2. Custom animation + libraries
-  * Daylight using `requestAnimationFrame()` (Y)
-  * 3D Symbols using [anime.js](https://animejs.com/) (A, plane airport approach)
-  * Camera paths (A, fly along Berlin wall, `geometryEngine.generalize`, splines, interpolate)
-  * Line geometry (A, Cyclades sailing route, query geometry, add points to geometry)
+* 2. Custom Animations
+  * `requestAnimationFrame()` (Y)
+  * Animation Libraries
+  * Interpolation
+  * Smooth Lines
 * 3. External renderer (Y)
 
 ---
@@ -445,7 +445,9 @@ updateAnimationAt(step);
 
 <!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
 
-# Animating: 3D Symbols
+# Custom Animations
+
+## Animation Libraries
 
 ---
 
@@ -459,16 +461,76 @@ updateAnimationAt(step);
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-2.png" data-title="add-3d-symbol" -->
 
-### Libraries: Use anime.js for 3D Symbols
+## Animation Libraries
+
+Easing Functions
+
+
+
+![EasingFunctions](images/animations/easings.png)
+
+[Hands-On Design Patterns with React Native by Mateusz Grzesiukiewicz](https://www.oreilly.com/library/view/hands-on-design-patterns/9781788994460/90627016-f8d5-4adc-98d1-7b4e667f33ae.xhtml)
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="add-3d-symbol" -->
+
+## Animation Libraries
+
+3D Point Symbols
+
 
 <div class="two-columns">
   <div class="left-column">
 
 <div class="code-snippet">
-<button class="play" id="addSceneLayerButton"></button>
-<pre><code class="lang-ts">anime.timeline({
+<pre><code class="lang-ts">
+var point = new Point({
+  latitude: 52.55573101150287, // Approach Berlin Tegel
+  longitude: 13.266720847998348,
+});
+
+var symbol = new WebStyleSymbol({
+  name: "Airplane_Large_Passenger_With_Wheels",
+  styleName: "EsriRealisticTransportationStyle",
+});
+
+
+var plane = new Graphic({
+  geometry: point,
+  symbol: symbol,
+});
+
+graphicsLayer.add(plane);
+</code></pre>
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe id="go-to-demo" data-src="./samples/berlin-airport" ></iframe>
+  </div>
+</div>
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="animate-3d-symbol" -->
+
+## Animation Libraries
+
+Translation & Easing
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<pre><code class="lang-ts">point.z = 100;</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">var timeline = anime.timeline({
   autoplay: false,
   targets: point,
   loop: true,
@@ -476,20 +538,20 @@ updateAnimationAt(step);
   update: function() {
     plane.geometry = point.clone();
   }
-})
-.add({
+});</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">timeline.add({
   ...pointB,
   easing: "linear",
-})
-.add({
+}).add({
   z: 0,
   easing: "easeOutSine",
-}, 0)
-.add({
+}, 0).add({
   ...pointC,
   easing: "easeOutSine",
-});
-</code></pre>
+});</code></pre>
 </div>
 
   </div>
@@ -502,7 +564,9 @@ updateAnimationAt(step);
 
 <!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
 
-# Animating: Camera Paths
+# Custom Animations
+
+## Linear Interpolation
 
 ---
 
@@ -553,7 +617,7 @@ updateAnimationAt(step);
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" -->
 
 ## Sailing Route
 
@@ -760,3 +824,14 @@ animations.forEach(anim => anim.update(timestep));
 - Look at samples, use three.js to simplify development
 - Make awesome animations!
 
+---
+
+<!-- .slide: data-background="images/bg-3.png" -->
+
+Please Take Our Survey on the App
+
+![images/survey.png](images/survey.png)
+
+---
+
+<!-- .slide: data-background="images/bg-final.png" -->

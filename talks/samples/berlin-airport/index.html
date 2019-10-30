@@ -125,6 +125,16 @@
           view.map.add(geoJSONLayer);
           view.environment.atmosphere.quality = "high";
           view.popup.defaultPopupTemplateEnabled = true;
+
+
+          var slideTitle = window.parent.Reveal.getCurrentSlide().getAttribute("data-title");
+          if (slideTitle === "add-3d-symbol") {
+            view.camera = {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1479627.345887225,"y":6901226.375262387,"z":69.9963634153828},"heading":280.9096920855792,"tilt":71.86917409060048};
+            document.querySelector('#toggle-play').style.display = "none";
+          } else if (slideTitle === "animate-3d-symbol") {
+            view.camera = {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1476555.3930814276,"y":6901059.134514972,"z":199.15840135607868},"heading":71.04069652949498,"tilt":74.768368423486};
+          }
+
         });
 
         var point = plane.geometry.clone();
