@@ -192,7 +192,7 @@ function startAnimation() {
 </code></pre>
       <svg data-play-frame="frame-go-to-heading-continuous" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
     </div>
-  
+
   <div class="snippet-preview">
     <iframe id="frame-go-to-heading-continuous" data-src="./samples/using-animations/05-go-to-heading-continuous.html" style="overflow: hidden;padding: 0; min-width: 400px;" frameborder="0"></iframe>
   </div>
@@ -523,6 +523,47 @@ updateAnimationAt(step);
   </div>
   <div class="right-column">
     <iframe id="go-to-demo" data-src="./samples/berlin-airport" ></iframe>
+  </div>
+</div>
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+### Camera Path
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="generalizeWallPoints"></button>
+<pre><code class="lang-ts">anime.timeline({
+  autoplay: false,
+  targets: point,
+  loop: true,
+  duration: 5000,
+  update: function() {
+    plane.geometry = point.clone();
+  }
+})
+.add({
+  ...pointB,
+  easing: "linear",
+})
+.add({
+  z: 0,
+  easing: "easeOutSine",
+}, 0)
+.add({
+  ...pointC,
+  easing: "easeOutSine",
+});
+</code></pre>
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe id="berlin-wall-camera-path-generalize" data-src="./samples/berlin-wall-camera-path/generalize" ></iframe>
   </div>
 </div>
 
