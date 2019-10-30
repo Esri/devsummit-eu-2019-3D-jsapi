@@ -46,7 +46,7 @@ From Latin _`animationem`_: <span id="letters">successive</span> drawings to cre
 <li><strong>Animate camera</strong></li>
 <li>Animate scene's elements
     <ul>
-    <li class="fragment"><strong>Visual variables <em>(colors, positions, ...)</em></strong></li>
+    <li class="fragment"><strong>Visual properties <em>(colors, positions, ...)</em></strong></li>
     <li class="fragment">3D texture <small><em>not covered</em></small></li>
     <li class="fragment"><strong>3D environment properties</strong></li>
     <li class="fragment">3D geometries <small><em>partially covered</em></small></li>
@@ -65,7 +65,7 @@ From Latin _`animationem`_: <span id="letters">successive</span> drawings to cre
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade"-->
+<!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" data-transition="fade"-->
 
 <div style="font-size: 300%; margin-top: -302px;">
 <span class="big-code" style="margin-left: -307px;">view.goTo(</span><span class="big-code">)</span>
@@ -73,7 +73,7 @@ From Latin _`animationem`_: <span id="letters">successive</span> drawings to cre
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade"-->
+<!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" data-transition="fade"-->
 
 <div style="font-size: 300%;">
 <span class="big-code">view.goTo(</span><code style="font-size: 100%;">target</code><span class="big-code">)</span>
@@ -89,7 +89,7 @@ From Latin _`animationem`_: <span id="letters">successive</span> drawings to cre
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade-in zoom-out"-->
+<!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" data-transition="fade-in zoom-out"-->
 
 <div style="font-size: 300%;margin-left: -120px;">
 <span class="big-code">view.goTo(</span><code style="font-size: 100%;">target</code><span class="big-code">).then(...)</span>
@@ -276,47 +276,6 @@ view.on("double-click", (event: any) => {
   </div>
 </div>
 
----
-
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
-
-## [`Slides`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo)
-
-- Convinient way to `goTo` point
-
----
-
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
-
-## [`SceneView.apply`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo) &mdash; Animation options (since 4.2)
-
-<div class="twos">
-  <div class="code-snippet">
-    <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
-function customEasing(t: number): number {
-  return 1 - Math.abs(
-    Math.sin(
-      -1.7 + t \* 4.5 \* Math.PI
-    )
-  ) \* Math.pow(0.5, t \* 10);
-}
-<br>
-// ...
-<br>
-slide.applyTo(view, {
-  // Either well-known builtin name, or
-  // custom function as above
-  easing,
-<br>
-  // Speed the animation up or down
-  speedFactor
-});
-</code></pre>
-  </div>
-  <div class="snippet-preview">
-    <iframe id="frame-go-to-animation-options" data-src="./samples/using-animations/08-go-to-animation-options.html" style="padding: 0; min-width: 400px; width: 100%; max-width: 90%; height: 100%;" allowfullscreen="true" frameborder="0"></iframe>
-  </div>
-</div>
 
 ---
 
@@ -374,9 +333,8 @@ using vanilla javascript or libraries.
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### The Naive Approach
 
-Using javascript built-in timing functions:
+Using built-in timing functions:
 
 <div class="code-snippet" style="font-size: 130%;width: auto; margin: auto; float: none;">
         <pre>
@@ -406,9 +364,7 @@ setTimeout(nextStep, 0);
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### Why not?
-
-<small><i>(explanation of the task queue and event loop here?)</i></small>
+### Limitations
 
 <!-- Inspiration: https://vimeo.com/254947206 -->
 
