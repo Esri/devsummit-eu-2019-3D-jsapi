@@ -42,10 +42,16 @@ section.title > * > img {
   * GLOBAL STYLES
   *********************************************/
  body {
-   /* http://colorzilla.com/gradient-editor/#0A1146+15,0A1146+15,4DADB7+100 */
-   background: #0A1146;
-   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-   background-color: #fff; }
+   background: #00A1DF;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #00A1DF 15%, #00A1DF 15%, #052C59 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #00A1DF 15%, #00A1DF 15%, #052C59 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(35deg, #00A1DF 15%, #00A1DF 15%, #052C59 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-color: #fff; }
+  }
 
  .reveal {
   font-family: "Avenir Next LT", sans-serif;

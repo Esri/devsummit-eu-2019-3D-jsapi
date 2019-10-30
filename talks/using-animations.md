@@ -279,10 +279,10 @@ view.on("double-click", (event: any) => {
 
 ---
 
-<!-- .slide: data-background-iframe="./samples/using-animations/03-water.html" data-transition="fade" -->
+<!-- .slide: data-background-iframe="./samples/using-animations/03-water.html"-->
 
 
-<iframe id="go-to-demo" data-src="./samples/using-animations/03-water.html" ></iframe>
+<!-- <iframe id="go-to-demo" data-src="./samples/using-animations/03-water.html" ></iframe> -->
 
 ## [`Water`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo)
 
@@ -622,16 +622,6 @@ Translation & Easing
 ## Sailing Route
 
 <iframe data-src="./samples/cycladecontours" class="fragment">
-
----
-
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
-
-## So, what can you animate with it?
-
-- Renderer
-- Visual variables
-- ...
 
 ---
 

@@ -84,22 +84,22 @@
       Reveal.initialize(options);
 
       // Define default background
-      for (var slide of document.getElementsByTagName('section')){
-        if (!(slide.getAttribute('data-background') ||
-              slide.getAttribute('data-background-video') ||
-              slide.getAttribute('data-background-iframe') ||
-              slide.getAttribute('data-background-image'))){
-          slide.setAttribute('data-background', 'images/bg-2.png');
-          slide.setAttribute('data-background-image', 'images/bg-2.png');
-        }
-      }
+      // for (var slide of document.getElementsByTagName('section')){
+      //   if (!(slide.getAttribute('data-background') ||
+      //         slide.getAttribute('data-background-video') ||
+      //         slide.getAttribute('data-background-iframe') ||
+      //         slide.getAttribute('data-background-image'))){
+      //     slide.setAttribute('data-background', 'images/bg-2.png');
+      //     slide.setAttribute('data-background-image', 'images/bg-2.png');
+      //   }
+      // }
 
       Reveal.addEventListener('ready', function(event) {
         addEventListener("message", function(event) {
           if (event.data && event.data.type === "fullscreen") {
             if (document.webkitCurrentFullScreenElement) {
               document.webkitExitFullscreen();
-              return
+              return;
             }
             var iframes = document.querySelectorAll("iframe");
             for (var i = 0; i < iframes.length; i++) {
