@@ -343,6 +343,25 @@ using pure Javascript or libraries.
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
+### Agenda
+
+<ol>
+  <li style="opacity: 0.3;">Built-in API Capabilities</li>
+  <li>Custom Animations
+  <ul>
+    <li>Pure Javascript's Technics</li>
+    <li style="opacity: 0.3;">Animation Libraries</li>
+    <li style="opacity: 0.3;">Interpolation</li>
+    <li style="opacity: 0.3;">Smooth Lines</li>
+  </ul>
+  </li>
+  <li style="opacity: 0.3;">External renderer</li>
+</ol>
+
+---
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
 <div class="twos">
     <div>
         Let's change the lighting manually... <br><br>
@@ -411,7 +430,7 @@ setTimeout(nextStep, 0);
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### Solution: `requestAnimationFrame`
+### `requestAnimationFrame`
 
 <!-- inspiration: https://flaviocopes.com/requestanimationframe/
     https://css-tricks.com/using-requestanimationframe/
@@ -478,11 +497,22 @@ updateAnimationAt(step);
 
 ---
 
-<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-# Custom Animations
+### Agenda
 
-## Animation Libraries
+<ol>
+  <li style="opacity: 0.3;">Built-in API Capabilities</li>
+  <li>Custom Animations
+  <ul>
+    <li style="opacity: 0.3;">Pure Javascript's Technics</li>
+    <li>Animation Libraries</li>
+    <li style="opacity: 0.3;">Interpolation</li>
+    <li style="opacity: 0.3;">Smooth Lines</li>
+  </ul>
+  </li>
+  <li style="opacity: 0.3;">External renderer</li>
+</ol>
 
 ---
 
@@ -597,11 +627,22 @@ Translation & Easing
 
 ---
 
-<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-# Custom Animations
+### Agenda
 
-## Linear Interpolation
+<ol>
+  <li style="opacity: 0.3;">Built-in API Capabilities</li>
+  <li>Custom Animations
+  <ul>
+    <li style="opacity: 0.3;">Pure Javascript's Technics</li>
+    <li style="opacity: 0.3;">Animation Libraries</li>
+    <li>Interpolation</li>
+    <li style="opacity: 0.3;">Smooth Lines</li>
+  </ul>
+  </li>
+  <li style="opacity: 0.3;">External renderer</li>
+</ol>
 
 ---
 
@@ -646,9 +687,22 @@ Translation & Easing
 
 ---
 
-<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-# Animating: 3D Lines
+### Agenda
+
+<ol>
+  <li style="opacity: 0.3;">Built-in API Capabilities</li>
+  <li>Custom Animations
+  <ul>
+    <li style="opacity: 0.3;">Pure Javascript's Technics</li>
+    <li style="opacity: 0.3;">Animation Libraries</li>
+    <li style="opacity: 0.3;">Interpolation</li>
+    <li>Smooth Lines</li>
+  </ul>
+  </li>
+  <li style="opacity: 0.3;">External renderer</li>
+</ol>
 
 ---
 
