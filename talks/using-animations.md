@@ -726,10 +726,9 @@ Translation & Easing
 
 ## When to use external renderers?
 
-- You have data that you cannot visualize with available renderers, methods
-- You want visualizations/animations that are not (yet) available
+- You want to animate many scene's elements
 - You are familiar with WebGL and can afford the development effort
-- **Important disclaimer: <span style="color: #faa">Experimental</red>!**
+- **Important disclaimer: Experimental!**
 
 ---
 
