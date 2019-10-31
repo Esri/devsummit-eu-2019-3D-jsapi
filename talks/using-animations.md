@@ -286,6 +286,7 @@ view.on("double-click", (event: any) => {
       min="0"
       max="360"
       id="direction"
+      onchange="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, direction: this.value }, '*');"
     />
     <p>Wave strength</p>
     <div style="text-align: left; margin-left: 100px; font-size: 0.8em;">
@@ -294,31 +295,35 @@ view.on("double-click", (event: any) => {
         name="waveStrengthRadio"
         value="calm"
         id="calm"
+        onchange="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, strength: this.value }, '*');"
       /><label for="calm">Calm</label><br />
       <input
         type="radio"
         name="waveStrengthRadio"
         value="rippled"
         id="rippled"
+        onchange="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, strength: this.value }, '*');"
       /><label for="rippled">Rippled</label><br />
       <input
         type="radio"
         name="waveStrengthRadio"
         value="slight"
         id="slight"
+        onchange="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, strength: this.value }, '*');"
       /><label for="slight">Slight</label><br />
       <input
         type="radio"
         name="waveStrengthRadio"
         value="moderate"
         id="moderate"
+        onchange="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, strength: this.value }, '*');"
         checked
       /><label for="moderate">Moderate</label><br />
     </div>
     <p>Dominant color</p>
-    <button id="navy" class="color-btn"></button>
-    <button id="green" class="color-btn"></button>
-    <button id="turqoise" class="color-btn"></button>
+    <button id="navy" class="color-btn" onclick="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, color: '#25427c' }, '*');"></button>
+    <button id="green" class="color-btn" onclick="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, color: '#039962' }, '*');"></button>
+    <button id="turqoise" class="color-btn" onclick="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, color: '#a2f9f5' }, '*');"></button>
 </div>
 
 ---

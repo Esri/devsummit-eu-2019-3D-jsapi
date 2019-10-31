@@ -58,15 +58,46 @@
         ui: {}
       });
 
+      var waterLayer;
+      scene.when(() => {
+        waterLayer = scene.layers.find((l) => l.title === "Water bodies");
+      });
+
       // debug:
       window["view"] = view;
 
       view.ui.empty("top-left");
       view.ui.empty("bottom");
 
+      function setWaterColor(color) {
+        var renderer = waterLayer.renderer.clone();
+        renderer.symbol.symbolLayers.getItemAt(0).color = color;
+        waterLayer.renderer = renderer;
+      }
+
+      function setWaveDirection(direction) {
+        var value = parseInt(direction);
+        var renderer = waterLayer.renderer.clone();
+        renderer.symbol.symbolLayers.getItemAt(0).waveDirection = value;
+        waterLayer.renderer = renderer;
+      }
+
+      function setWaveStrength (strength) {
+        var renderer = waterLayer.renderer.clone();
+        renderer.symbol.symbolLayers.getItemAt(0).waveStrength = strength;
+        waterLayer.renderer = renderer;
+      }
       window.addEventListener("message", function(m) {
-        if (m.data && m.data.play) {
-          
+        if (m.data && m.data.color) {
+          setWaterColor(m.data.color);
+        }
+
+        if (m.data && m.data.direction) {
+          setWaveDirection(m.data.direction);
+        }
+
+        if (m.data && m.data.strength) {
+          setWaveStrength(m.data.strength);
         }
       }, false);
     });
