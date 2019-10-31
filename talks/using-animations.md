@@ -527,7 +527,7 @@ updateAnimationAt(step);
 
 [https://animejs.com/](https://animejs.com/) <!-- .element: class="fragment" -->
 
-<iframe src="https://animejs.com/documentation/#loop" class="fragment">
+<iframe src="https://animejs.com" class="fragment">
 
 ---
 
@@ -558,8 +558,9 @@ Easing Functions
 <div class="code-snippet">
 <pre><code class="lang-ts">
 var point = new Point({
-  latitude: 52.55573101150287, // Approach Berlin Tegel
-  longitude: 13.266720847998348,
+  latitude: 52.5557, // Approach Berlin Tegel
+  longitude: 13.2667,
+  z: 100,
 });
 
 var symbol = new WebStyleSymbol({
@@ -595,10 +596,6 @@ Translation & Easing
 <div class="two-columns">
   <div class="left-column">
 
-<div class="code-snippet">
-<pre><code class="lang-ts">point.z = 100;</code></pre>
-</div>
-
 <div class="code-snippet fragment">
 <pre><code class="lang-ts">var timeline = anime.timeline({
   autoplay: false,
@@ -613,13 +610,15 @@ Translation & Easing
 
 <div class="code-snippet fragment">
 <pre><code class="lang-ts">timeline.add({
-  ...pointB,
+  latitude: 52.5572, longitude: 13.2816,
   easing: "linear",
-}).add({
+})
+.add({
   z: 0,
   easing: "easeOutSine",
-}, 0).add({
-  ...pointC,
+}, 0)
+.add({
+  latitude: 52.5584, longitude: 13.2930,
   easing: "easeOutSine",
 });</code></pre>
 </div>
@@ -651,37 +650,128 @@ Translation & Easing
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-2.png" data-title="generalize-wall" -->
 
-### Camera Path
+### Linear Interpolation
+
+Generalize Geometry
 
 <div class="two-columns">
   <div class="left-column">
 
 <div class="code-snippet">
+<pre><code class="lang-ts">layer.queryFeatures(query)</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Retrieve list of geometries
+.then(response => response.features.map(f => f.geometry))</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Create single geometry
+.then(geometries => geometryEngine.union(geometries))</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Generalize by deviating max 2.5km from original geometry
+.then(wall => geometryEngine.generalize(wall, 2500))</code></pre>
+</div>
+
+<div class="code-snippet fragment">
 <button class="play" id="generalizeWallPoints"></button>
-<pre><code class="lang-ts">anime.timeline({
-  autoplay: false,
-  targets: point,
-  loop: true,
-  duration: 5000,
-  update: function() {
-    plane.geometry = point.clone();
-  }
-})
-.add({
-  ...pointB,
-  easing: "linear",
-})
-.add({
-  z: 0,
-  easing: "easeOutSine",
-}, 0)
-.add({
-  ...pointC,
-  easing: "easeOutSine",
-});
-</code></pre>
+<pre><code class="lang-ts">.then(simpleWall => draw(simpleWall));</code></pre>
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe id="berlin-wall-camera-path-generalize" data-src="./samples/berlin-wall-camera-path/generalize" ></iframe>
+  </div>
+</div>
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="generalize-wall" -->
+
+### Linear Interpolation
+
+Some 2D Math
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Distance between two points, alternatively use
+// geometryEngine.geodesicLength()
+// geometryEngine.planarLength()
+function dist(pointA, pointB) {
+  const a = pointA.x - pointB.x;
+  const b = pointA.y - pointB.y;
+  return Math.sqrt(a * a + b * b);
+}</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Degrees looking from pointA to pointB
+function heading(pointA, pointB) {
+  const atan2 = Math.atan2(
+    pointB.y - pointA.y,
+    pointB.x - pointA.x
+  );
+  return 90 - atan2 * 180 / Math.PI;
+}</code></pre>
+</div>
+
+  </div>
+  <div class="right-column">
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Interpolate between points
+function lerp2D(pointA, pointB, t) {
+  var point = pointA.clone();
+  point.x = pointA.x + (pointB.x - pointA.x ) * t;
+  point.y = pointA.y + (pointB.y - pointA.y) * t;
+  return point;
+}</code></pre>
+</div>
+
+  </div>
+</div>
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="update-camera" -->
+
+### Linear Interpolation
+
+Update Camera
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">// Animation
+totalTime = ...; // time for segment
+initialDist = ...; // distance between camera and wall
+function step(timestamp) {
+  var t = (timestamp - startTime) / totalTime;
+  var camera = view.camera.clone();</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<pre><code class="lang-ts">  // Point we are following
+  var target = lerp2D(pointA, pointB, t);
+  var d = 1 - initialDist / dist(camera.position, target);</code></pre>
+</div>
+
+<div class="code-snippet fragment">
+<button class="play" id="animateWall"></button>
+<pre><code class="lang-ts">  // New camera position
+  camera.position = lerp2D(camera.position, target, d);
+  camera.heading = heading(camera.position, target);
+  view.camera = camera;
+  requestAnimationFrame(step);
+};
+requestAnimationFrame(step);</code></pre>
 </div>
 
   </div>
@@ -692,7 +782,7 @@ Translation & Easing
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+<!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" -->
 
 ### Agenda
 

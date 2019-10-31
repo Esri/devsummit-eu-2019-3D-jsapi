@@ -26,6 +26,33 @@ require([
     map,
   });
 
+  var pinSymbol = {
+    type: "point-3d",
+    symbolLayers: [{
+      type: "icon",
+      size: 8,
+      resource: { primitive: "circle" },
+      material: { color: "dodgerblue" }
+    }],
+    verticalOffset: {
+      minWorldLength: 800,
+      screenLength: 100,
+      maxWorldLength: 1500
+    },
+    callout: {
+      type: "line",
+      size: .1,
+      color: [50, 50, 50],
+      border: {
+        width: 0,
+        color: [50, 50, 50]
+      }
+    }
+  };
+
+  var movingPin = new Graphic({
+    symbol: pinSymbol,
+  });
 
   function waitForUpdates() {
     return watchUtils.whenNotOnce(view, "updating");
@@ -36,50 +63,31 @@ require([
     return waitForUpdates().then(() => slide.applyTo(view, props));
   }
 
+  var graphicsLayer = new GraphicsLayer();
+
   var wallGeometryPromise;
   var camera = {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1438907.211361001,"y":6874438.184318392,"z":8610.004744450562},"heading":93.10542349391606,"tilt":58.06561973227666};
 
-  function generalizeWall() {
+  function drawWall(drawPins) {
     wallGeometryPromise
       .then(wall => {
 
-        var graphicsLayer = new GraphicsLayer();
         view.map.add(graphicsLayer);
 
-        wall.paths.flat().map(vertex => {
-          var nearestCoordinate = geometryEngine.nearestCoordinate(wall, {
-            type: "point",
-            spatialReference: wall.spatialReference,
-            x: vertex[0],
-            y: vertex[1],
+        if (drawPins) {
+          wall.paths.flat().map(vertex => {
+            var nearestCoordinate = geometryEngine.nearestCoordinate(wall, {
+              type: "point",
+              spatialReference: wall.spatialReference,
+              x: vertex[0],
+              y: vertex[1],
+            });
+            graphicsLayer.add({
+              geometry: nearestCoordinate.coordinate,
+              symbol: pinSymbol,
+            });
           });
-          graphicsLayer.add({
-            geometry: nearestCoordinate.coordinate,
-            symbol: {
-              type: "point-3d",
-              symbolLayers: [{
-                type: "icon",
-                size: 8,
-                resource: { primitive: "circle" },
-                material: { color: "dodgerblue" }
-              }],
-              verticalOffset: {
-                minWorldLength: 80,
-                screenLength: 80,
-                maxWorldLength: 800
-              },
-              callout: {
-                type: "line",
-                size: .1,
-                color: [50, 50, 50],
-                border: {
-                  width: 0,
-                  color: [50, 50, 50]
-                }
-              }
-            }
-          });
-        });
+        }
 
         var polylineGraphic = new Graphic({
           geometry: wall,
@@ -112,6 +120,12 @@ require([
         .then(wall => geometryEngine.generalize(wall, 2500))
         .then(generalizedWall => {
           // Instead of using the generalized wall, we hard code the vertices here
+          movingPin.geometry = {
+            type: "point",
+            x: 1457971.4239,
+            y: 6874363.8268,
+            spatialReference: generalizedWall.spatialReference,
+          };
           return {
             type: "polyline",
             spatialReference: generalizedWall.spatialReference,
@@ -143,6 +157,7 @@ require([
               [1455530.3634,6877439.0968]
             ]]
           };
+
           // return generalizeWall;
         })
         .catch(console.error);
@@ -152,8 +167,13 @@ require([
     .then(() => waitForUpdates())
     .then(() => applySlide("Berlin - initial view"))
     .then(() => waitForUpdates())
-    .then(() => generalizeWall())
-    .then(() => view.goTo(camera, {duration: 4000}));
+    .then(() => {
+      var slideTitle = window.parent.Reveal.getCurrentSlide().getAttribute("data-title");
+      if (slideTitle === "update-camera") {
+        drawWall(false);
+        graphicsLayer.add(movingPin);
+      }
+    }).catch(console.error);
 
   var points = [];
   view.on("click", event => {
@@ -166,6 +186,10 @@ require([
   });
 
   window.parent.document.getElementById("generalizeWallPoints").addEventListener("click", () => {
+    drawWall(true);
+  });
+
+  window.parent.document.getElementById("animateWall").addEventListener("click", () => {
     waitForUpdates()
       .then(() => wallGeometryPromise)
       .then(wall => animateLine(wall))
@@ -209,6 +233,7 @@ require([
     const paths = [start];
 
     const movingPoint = {
+      type: "point",
       spatialReference: geometry.spatialReference,
       x: start[0],
       y: start[1]
@@ -243,6 +268,8 @@ require([
       const sp = Math.min(1.0, progress / durations[index]);
       movingPoint.x = previousPoint[0] + (waypoints[index][0] - previousPoint[0]) * sp;
       movingPoint.y = previousPoint[1] + (waypoints[index][1] - previousPoint[1]) * sp;
+
+      movingPin.geometry = movingPoint;
 
       if (paths.length) {
         // createGraphic(paths.concat([[movingPoint.x, movingPoint.y]]));
