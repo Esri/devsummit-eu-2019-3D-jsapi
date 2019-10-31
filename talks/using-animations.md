@@ -42,9 +42,9 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 <p><span style="font-weight: lighter;opacity: 0.5;">Animate</span> Scene's elements
     <ul style="font-size: 0.7em;">
     <li class="fragment fade-in">Visual properties <em style="opacity: 0.8; font-weight: normal;font-size: 80%;">(colors, positions, ...)</em></li>
-    <li class="fragment fade-in" style="opacity: 0.8; font-weight: normal;">3D texture</li>
     <li class="fragment fade-in">3D environment properties</li>
     <li class="fragment fade-in">3D geometries</small></li>
+    <li class="fragment fade-in" style="opacity: 0.8; font-weight: normal;">3D texture</li>
 </ul>
 </p>
 </div>
