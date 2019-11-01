@@ -714,17 +714,6 @@ requestAnimationFrame(step);</code></pre>
 - You want to animate many scene's elements
 - You are familiar with WebGL and can afford the development effort
 - **Important disclaimer: Experimental!**
-<!---
-
-## Earthquakes (APL)
-
-<video height="450px" autoplay="yes" controls="yes" loop="yes">
-  <source data-src="./images/animations/earth-quakes.mp4" type="video/mp4"/>
-</video>
-
-https://github.com/richiecarmichael/Esri-Quake-Map
-
---->
 
 ---
 
@@ -732,34 +721,6 @@ https://github.com/richiecarmichael/Esri-Quake-Map
 
 
 <iframe id="frame-velocity-flow" data-src="http://coolmaps.esri.com/Dashboards/CrimeTrends"></iframe>
-
-
----
-
-## Basic concepts
-
-<!-- https://developers.arcgis.com/javascript/latest/api-reference/esri-views-3d-externalRenderers.html -->
-
-<pre style="font-size: 0.8em"><code class="lang-js hljs typescript">
-require([
-  "esri/views/3d/externalRenderers"
-], function(externalRenderers) {
-  var myExternalRenderer = {
-    setup: function(context) {
-      // Executed once after the external renderer is added to a view.
-    },
-    render: function(context) {
-      // Executed in every frame to draw geometry to the canvas:
-      // * Update the state of dynamic resources
-      // * Set the WebGL state as needed for rendering
-      // * Issue WebGL draw calls
-    }
-  };
-  // ...
-  externalRenderers.add(view, myExternalRenderer);
-  // ...
-});
-</code></pre>
 
 ---
 
@@ -773,36 +734,6 @@ require([
 
 (https://threejs.org/)
 
----
-
-## Hands-on, three.js &mdash; Animations
-
-<div class="twos">
-  <div class="code-snippet">
-    <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
-const loader = new THREE.ColladaLoader();
-<br>
-loader.load("./model.dae", (m: any) => {
-  for (const anim of m.animations) {
-    const keyAnim = new THREE.KeyFrameAnimation(anim);
-<br>
-    keyAnim.loop = false;
-    keyAnim.play(0);
-<br>
-    animations.push(keyAnim);
-  }
-});
-<br>
-// ...
-<br>
-animations.forEach(anim => anim.update(timestep));
-    </code></pre>
-    <svg data-play-frame="frame-threejs-loader-animations" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
-  </div>
-  <div class="snippet-preview">
-    <iframe id="frame-threejs-loader-animations" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/extending-3d-engine/snippets/snippet.html?05-threejs-loader-animations" style="overflow: hidden;padding: 0; min-width: 400px; max-width: 80%; width: 80%; height" frameborder="0"></iframe>
-  </div>
-</div>
 
 ---
 
