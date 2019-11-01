@@ -12,20 +12,6 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
-
-### Agenda
-
-1. Built-in API Capabilities
-2. Custom Animations
-  * Pure Javascript's Technics
-  * Animation Libraries
-  * Interpolation
-  * Smooth Lines
-3. External renderer
-
----
-
 <!-- .slide: data-background="images/bg-4.png" data-title="add-scene-layer" data-state="slide-animation-title" data-transition="zoom-in slide-out" -->
 
 <h1 id="animation" style="font-size: 500%;">Animation</h1>
@@ -48,6 +34,21 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 </ul>
 </p>
 </div>
+
+---
+
+
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+
+### Agenda
+
+1. Built-in API Capabilities
+2. Custom Animations
+  * Pure Javascript's Techniques
+  * Animation Libraries
+  * Interpolation
+  * Smooth Lines
+3. External renderer
 
 ---
 
@@ -153,122 +154,11 @@ view.goTo({
   </div>
 </div>
 
-<!---
-
-## [`SceneView.goTo`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo) &mdash; Continuous updates
-
-<div class="twos">
-    <div class="code-snippet">
-      <pre><code class="lang-ts hljs typescript" style="padding: 20px; float: none; ">
-function animateLookAroundStep() {
-  view.goTo({
-    position: animationPosition,
-    heading: view.camera.heading - 0.1
-  }, { animate: false });
-}
-<br>
-function animateRotateAroundStep() {
-  view.goTo({
-    center: animationCenter,
-    scale: animationScale,
-    heading: view.camera.heading + 0.1
-  }, { animate: false });
-}
-<br>
-function startAnimation() {
-  // Store scale, center and position to
-  // animate around
-  animationScale = view.scale;
-  animationCenter = view.center.clone();
-  animationPosition = view.camera.position.clone();
-  animate();
-}
-</code></pre>
-      <svg data-play-frame="frame-go-to-heading-continuous" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
-    </div>
-
-  <div class="snippet-preview">
-    <iframe id="frame-go-to-heading-continuous" data-src="./samples/using-animations/05-go-to-heading-continuous.html" style="overflow: hidden;padding: 0; min-width: 400px;" frameborder="0"></iframe>
-  </div>
-</div>
-
-I realised that this already involves animation that we see in the next chapter, so this slide is irrelevant here.
-
--->
 ---
 
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
+## GoTo - options
 
-## [`SceneView.goTo`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo) &mdash; Graphics, query
-
-<div class="twos">
-  <div class="code-snippet">
-    <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
-const query = new Query({
-  definitionExpression: "ELEVATION > 90",
-  returnGeometry: false,
-  geometry: view.extent.clone(),
-  outFields: [layer.objectIdField]
-});
-// Query features from the service
-layer.queryFeatures(query)
-.then((featureSet: FeatureSet) => {
-  // Get all the feature object ids
-  const objectIds = featureSet.features.map(
-    feature => feature.attributes[layer.objectIdField]
-  );
-<br>
-  // Query the graphics from the layer view
-  const query = new Query({ objectIds });
-  return layerView.queryFeatures(query);
-})
-.then((graphics: Graphic[]) => {
-  // Finally, frame the graphics using goTo
-  view.goTo(graphics, { speedFactor: 0.2 });
-});
-</code></pre>
- <svg data-play-frame="frame-go-to-graphics" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
-  </div>
-  <div class="snippet-preview">
-    <iframe id="frame-go-to-graphics" data-src="./samples/using-animations/06-go-to-graphics.html" style="overflow: hidden;padding: 0; min-width: 400px; max-width: 80%; width: 80%;" frameborder="0"></iframe>
-  </div>
-</div>
-
----
-
-<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
-
-## [`SceneView.goTo`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo) &mdash; Graphics, hitTest
-
-<div class="twos">
-  <div class="code-snippet">
-    <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
-<br><br><br>
-view.on("double-click", (event: any) => {
-  view.hitTest({ x: event.x, y: event. y})
-      .then((hitResult: any) => {
-        const graphic = (
-          hitResult.results[0] &&
-          hitResult.results[0].graphic
-        );
-<br>
-        if (graphic) {
-          const target = {
-            target: graphic,
-            scale: 1200,
-            heading: view.camera.heading + 50
-          };
-<br>
-          view.goTo(target, { speedFactor: 0.5 });
-        }
-      });
-});
-</code></pre>
-</div>
-  <div class="snippet-preview">
-    <iframe id="frame-go-to-graphics-hit-test" data-src="./samples/using-animations/07-go-to-graphics-hit-test.html" style="overflow: hidden;padding: 0; min-width: 400px;" frameborder="0"></iframe>
-  </div>
-</div>
+TBD
 
 
 ---
@@ -354,7 +244,7 @@ using pure Javascript or libraries.
   <li style="opacity: 0.3;">Built-in API Capabilities</li>
   <li>Custom Animations
   <ul>
-    <li>Pure Javascript's Technics</li>
+    <li>Pure Javascript's Techniques</li>
     <li style="opacity: 0.3;">Animation Libraries</li>
     <li style="opacity: 0.3;">Interpolation</li>
     <li style="opacity: 0.3;">Smooth Lines</li>
@@ -441,7 +331,7 @@ setTimeout(nextStep, 0);
     https://css-tricks.com/using-requestanimationframe/
     https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame -->
 
-> It's a function provided by the browser for it to call your function (likeley to update an animation) before the next **repaint**.
+> It's a function provided by the browser for it to call your function (likely to update an animation) before the next **repaint**.
 
 <small>source: <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">https://developer.mozilla.org</a></small>
 
@@ -484,7 +374,7 @@ setTimeout(nextStep, 0);
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### Tips & tricks
+### Controlling animation speed...
 
 <div class="code-snippet" style="font-size: 130%;width: auto; margin: auto; float: none;">
         <pre>
@@ -510,7 +400,7 @@ updateAnimationAt(step);
   <li style="opacity: 0.3;">Built-in API Capabilities</li>
   <li>Custom Animations
   <ul>
-    <li style="opacity: 0.3;">Pure Javascript's Technics</li>
+    <li style="opacity: 0.3;">Pure Javascript's Techniques</li>
     <li>Animation Libraries</li>
     <li style="opacity: 0.3;">Interpolation</li>
     <li style="opacity: 0.3;">Smooth Lines</li>
@@ -639,7 +529,7 @@ Translation & Easing
   <li style="opacity: 0.3;">Built-in API Capabilities</li>
   <li>Custom Animations
   <ul>
-    <li style="opacity: 0.3;">Pure Javascript's Technics</li>
+    <li style="opacity: 0.3;">Pure Javascript's Techniques</li>
     <li style="opacity: 0.3;">Animation Libraries</li>
     <li>Interpolation</li>
     <li style="opacity: 0.3;">Smooth Lines</li>
@@ -790,7 +680,7 @@ requestAnimationFrame(step);</code></pre>
   <li style="opacity: 0.3;">Built-in API Capabilities</li>
   <li>Custom Animations
   <ul>
-    <li style="opacity: 0.3;">Pure Javascript's Technics</li>
+    <li style="opacity: 0.3;">Pure Javascript's Techniques</li>
     <li style="opacity: 0.3;">Animation Libraries</li>
     <li style="opacity: 0.3;">Interpolation</li>
     <li>Smooth Lines</li>
