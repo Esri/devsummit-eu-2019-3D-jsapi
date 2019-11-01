@@ -824,17 +824,7 @@ requestAnimationFrame(step);</code></pre>
 - You want to animate many scene's elements
 - You are familiar with WebGL and can afford the development effort
 - **Important disclaimer: Experimental!**
-
----
-
-## Eearth Magnetic Field (APL)
-
-<iframe id="frame-velocity-flow" data-src="http://richiecarmichael.github.io/mag/index.html"></iframe>
-
-https://github.com/richiecarmichael/Esri-Earth-Magnetic-Field
-
-
----
+<!---
 
 ## Earthquakes (APL)
 
@@ -843,6 +833,16 @@ https://github.com/richiecarmichael/Esri-Earth-Magnetic-Field
 </video>
 
 https://github.com/richiecarmichael/Esri-Quake-Map
+
+--->
+
+---
+
+## NYC Crime Trend
+
+
+<iframe id="frame-velocity-flow" data-src="http://coolmaps.esri.com/Dashboards/CrimeTrends"></iframe>
+
 
 ---
 
@@ -922,8 +922,9 @@ animations.forEach(anim => anim.update(timestep));
 
 ---
 
-## Demos
+## Advanced animations:
 
+<!-- http://coolmaps.esri.com/#13 -->
 
 <iframe id="frame-velocity-flow" data-src="https://jkieboom.github.io/devsummit-palm-springs-2017/extending-3d-engine/snippets/snippet.html?07-velocity-flow&console=no"></iframe>
 
