@@ -3,7 +3,7 @@ define(["require", "exports", "esri/Map", "esri/views/MapView"], function (requi
     Object.defineProperty(exports, "__esModule", { value: true });
     function createFullscreen(view) {
         var fullscreen = document.createElement("div");
-        fullscreen.classList.add("esri-button", "esri-widget-button", "esri-interactive");
+        fullscreen.classList.add("esri-widget--button", "esri-interactive");
         var span = document.createElement("span");
         span.classList.add("esri-icon", "esri-icon-zoom-out-fixed");
         fullscreen.appendChild(span);
