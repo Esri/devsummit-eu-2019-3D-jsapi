@@ -129,7 +129,9 @@ Browser requirements
 
 ---
 
-## API Architecture
+<!-- .slide: data-background="images/bg-3.png" -->
+
+### Architecture
 
 <img src="images/getting-started-with-3d/architecture-map-webscene-webmap-sceneview-mapview.png" width="60%" style="border: none; background: none; box-shadow: none"/>
 
@@ -613,30 +615,31 @@ Animated [WaterSymbol3DLayer](https://developers.arcgis.com/javascript/latest/ap
 
 <span style="font-size: 50%">https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html</span>
 
-<div class="code-snippet" style="max-width: 600px; float: none; position: absolute; left: 50%; transform: translate(-50%, 0); font-size: 160%;">
-  <pre><code class="lang-ts">
+
+```ts
 class SceneView {
-  //
+
   // Camera specifies the view
   camera: Camera;
-  //
+
   // Animations, framing
   goTo(viewpoint);
-  //
+
   // Finding graphics at screen locations
   hitTest(screenPoint);
-  //
+
   // User events
   on(event, callback);
-}</code></pre>
-</div>
+}
+```
+<!-- .element: style="max-width: 600px; float: none; position: absolute; left: 50%; transform: translate(-50%, 0); font-size: 80%;" -->
 
 ---
 
 
-<!-- .slide: data-background="images/bg-3.png" -->
+<!-- .slide: data-background="images/bg-2.png" -->
 
-### goTo
+### goTo()
 <ul>
   <li>
 
@@ -667,9 +670,9 @@ class SceneView {
 
 ---
 
-<!-- .slide: data-background="images/bg-2.png" -->
+<!-- .slide: data-background="images/bg-3.png" -->
 
-### goTo
+### goTo()
 
 - Use [`SceneView.goTo()`](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html#goTo) to create smooth camera animations
 
