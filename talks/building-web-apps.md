@@ -68,7 +68,7 @@ Layer.fromPortalItem({
 <div class="code-snippet">
 <pre><code class="lang-ts">// Enable stars
 map.basemap = null;
-view.environment.lighting.starsEnabled = false;</code></pre>
+view.environment.lighting.starsEnabled = true;</code></pre>
 </div>
 
 
