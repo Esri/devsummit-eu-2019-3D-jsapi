@@ -87,6 +87,13 @@
         renderer.symbol.symbolLayers.getItemAt(0).waveStrength = strength;
         waterLayer.renderer = renderer;
       }
+
+      function goToSlide(slideIndex) {
+        view.map.presentation.slides.getItemAt(slideIndex).applyTo(view);
+      }
+
+      var slideNum = 0;
+
       window.addEventListener("message", function(m) {
         if (m.data && m.data.color) {
           setWaterColor(m.data.color);
@@ -98,6 +105,11 @@
 
         if (m.data && m.data.strength) {
           setWaveStrength(m.data.strength);
+        }
+
+        if (m.data && m.data.slide) {
+          goToSlide(slideNum);
+          slideNum = slideNum > 0 ? 0 : 1;
         }
       }, false);
     });

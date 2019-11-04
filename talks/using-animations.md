@@ -182,7 +182,7 @@ view.goTo(target, {
 
 <!-- .slide: data-background-iframe="./samples/using-animations/03-water.html"-->
 
-## [`WaterSymbol3DLayer`](https://developers.arcgis.com/javascript/latest/api-reference/esri-symbols-WaterSymbol3DLayer.html)
+<h2 id="watersymbol3dlayer"><span onclick="document.querySelector('.slide-background.present iframe').contentWindow.postMessage({ play: true, slide: true }, '*');"><code>WaterSymbol3DLayer</code></a></h2>
 
 <div class="fragment" id="menu">
   <p>Wave direction</p>
