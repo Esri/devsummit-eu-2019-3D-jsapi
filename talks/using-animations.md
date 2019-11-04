@@ -126,8 +126,7 @@ Promise.then(function (data) {
 const currentHeading = view.camera.heading;
 // Set the heading of the view to
 // the closest multiple of 30 degrees
-const heading = Math.floor((currentHeading + 1) / 30)
-    \* 30 + 30;
+const heading = Math.floor((currentHeading + 1) / 30) * 30 + 30;
 // go to heading preserves view.center
 view.goTo({
   heading
@@ -156,9 +155,27 @@ view.goTo({
 
 ---
 
-## GoTo - options
+<!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-TBD
+## [`SceneView.goTo`](https://developers.arcgis.com/javascript/beta/api-reference/esri-views-SceneView.html#goTo) &mdash; Options
+
+
+<div class="code-snippet" style="font-size: 150%;">
+      <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
+view.goTo(target, {
+  // Animate transition to the new view
+  animate: boolean = true,
+  // Speed of the animation
+  speedFactor: Number = 1,
+  // Set the exact duration  (in milliseconds)
+  duration: Number = undefined,
+  // The maximum allowed duration (in milliseconds)
+  maxDuration: Number = 8000,
+  // Function defining the speed of animation
+  easing: String | Function = "out-expo" || "in-out-coast-quadratic"
+});
+      </code></pre>
+</div>
 
 
 ---
@@ -288,7 +305,7 @@ Using built-in timing functions:
 <div class="code-snippet" style="font-size: 130%;width: auto; margin: auto; float: none;">
         <pre>
             <code style="padding: 0px 50px;" class="lang-js">
-...
+// ...
 setInterval(nextStep, 200);
             </code>
         </pre>
@@ -300,7 +317,7 @@ Or...
         <pre>
             <code style="padding: 0px 50px;" class="lang-js">
 function nextStep() {
-    ...
+    // ...
     setTimeout(nextStep, 0);
 }
 setTimeout(nextStep, 0);
@@ -346,16 +363,17 @@ setTimeout(nextStep, 0);
             <pre>
             <code style="padding: 0" class="lang-js">
                 <br><br><br>
-    ...
+    // ...
     const startTime = new Date().getTime();
     <br>
     function nextStep(timestamp) {
         // epoch time [ms] (floated precision):
         const elapsedTime = startTime - timestamp;
-        ...
+        // ...
         // request next refresh:
         window.requestAnimationFrame(nextStep);
     }
+    <br>
     // start:
     window.requestAnimationFrame(nextStep);
     <br>
