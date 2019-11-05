@@ -3,8 +3,10 @@
 # <span style="font-size: 0.8em;">ArcGIS API for JavaScript</span><br>Getting Started with 3D
 
 
-Sébastien Szollosi, Esri France \
+Sébastien Szollosi, Esri France
+@SzollosiSbasti1 <br/>
 Arno Fiva, Esri R&D Center Zürich
+@arnofiva
 
 ESRI EUROPEAN DEVELOPER SUMMIT​
 
@@ -37,7 +39,34 @@ Browser requirements
 
 <!-- .slide: data-background="images/bg-4.png" -->
 
-<img src="images/getting-started-with-3d/teaser.jpg" width="100%"/>
+## JavaScript API Samples
+
+https://ralucanicola.github.io/JSAPI_demos
+
+<iframe data-src="https://ralucanicola.github.io/JSAPI_demos/world-population/" style="width: 70%;">
+
+---
+
+<!-- .slide: data-background="images/bg-4.png" -->
+
+## JavaScript API Samples
+
+https://github.com/RalucaNicola/the-globe-of-extremes
+
+<iframe data-src="https://ralucanicola.github.io/the-globe-of-extremes/" style="width: 70%;">
+
+
+---
+
+<!-- .slide: data-background="images/bg-4.png" -->
+
+## JavaScript API Samples
+
+https://ralucanicola.github.io/JSAPI_demos
+
+<iframe data-src="https://ralucanicola.github.io/JSAPI_demos/sketch-the-city/" style="width: 70%;">
+
+
 
 ---
 
