@@ -48,7 +48,7 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
   * Animation Libraries
   * Interpolation
   * Smooth Lines
-3. External renderer
+3. External Renderer
 
 ---
 
@@ -102,7 +102,7 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" data-transition="fade-in"-->
 
-## A promise
+## Promise
 
 <div class="code-snippet" style="font-size: 300%;">
       <pre><code class="lang-ts hljs typescript" style="padding: 20px;width: 100%;">
@@ -267,7 +267,7 @@ using pure Javascript or libraries.
     <li style="opacity: 0.3;">Smooth Lines</li>
   </ul>
   </li>
-  <li style="opacity: 0.3;">External renderer</li>
+  <li style="opacity: 0.3;">External Renderer</li>
 </ol>
 
 ---
@@ -276,7 +276,7 @@ using pure Javascript or libraries.
 
 <div class="twos">
     <div>
-        Let's change the lighting manually... <br><br>
+        Change Daylight - One step <br><br>
         <div class="code-snippet" style="max-width: 600px; font-size: 130%;float: none;">
             <pre>
             <code style="padding: 50px;" class="lang-js">
@@ -300,7 +300,7 @@ using pure Javascript or libraries.
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
 
-Using built-in timing functions:
+Using built-in timing functions
 
 <div class="code-snippet" style="font-size: 130%;width: auto; margin: auto; float: none;">
         <pre>
@@ -311,7 +311,7 @@ setInterval(nextStep, 200);
         </pre>
     </div>
 
-Or...
+Or
 
 <div class="code-snippet" style="font-size: 130%;float: none;">
         <pre>
@@ -356,7 +356,7 @@ setTimeout(nextStep, 0);
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### In code...
+### Animating Daylight using `requestAnimationFrame`
 <div class="twos">
     <div>
         <div class="code-snippet" style="max-width: 600px; font-size: 130%;float: none;">
@@ -392,7 +392,7 @@ setTimeout(nextStep, 0);
 
 <!-- .slide: data-background="images/bg-3.png" data-title="add-scene-layer" -->
 
-### Controlling animation speed...
+### Controlling Animation Speed
 
 <div class="code-snippet" style="font-size: 130%;width: auto; margin: auto; float: none;">
         <pre>
@@ -424,7 +424,7 @@ updateAnimationAt(step);
     <li style="opacity: 0.3;">Smooth Lines</li>
   </ul>
   </li>
-  <li style="opacity: 0.3;">External renderer</li>
+  <li style="opacity: 0.3;">External Renderer</li>
 </ol>
 
 ---
@@ -553,7 +553,7 @@ Translation & Easing
     <li style="opacity: 0.3;">Smooth Lines</li>
   </ul>
   </li>
-  <li style="opacity: 0.3;">External renderer</li>
+  <li style="opacity: 0.3;">External Renderer</li>
 </ol>
 
 ---
@@ -704,7 +704,7 @@ requestAnimationFrame(step);</code></pre>
     <li>Smooth Lines</li>
   </ul>
   </li>
-  <li style="opacity: 0.3;">External renderer</li>
+  <li style="opacity: 0.3;">External Renderer</li>
 </ol>
 
 ---
@@ -755,13 +755,15 @@ requestAnimationFrame(step);</code></pre>
 
 ---
 
-## Demos
+## Get Started
+
+https://developers.arcgis.com/javascript/latest/sample-code/scene-external-renderer/index.html
 
 <iframe data-src="https://developers.arcgis.com/javascript/latest/sample-code/scene-external-renderer/live/index.html" frameborder="0"></iframe>
 
 ---
 
-## Advanced animations:
+## Advanced Animations
 
 <!-- http://coolmaps.esri.com/#13 -->
 
