@@ -3,10 +3,13 @@
 # <span style="font-size: 0.8em;">ArcGIS API for JavaScript</span><br>Getting Started with 3D
 
 
-Sébastien Szollosi, Esri France
-@SzollosiSbasti1 <br/>
-Arno Fiva, Esri R&D Center Zürich
-@arnofiva
+<p>
+Arno Fiva, Esri R&D Center Zürich<br>
+@arnofiva<br><br>
+Sébastien Szollosi, Esri France <br>
+@SzollosiSbasti1 <br>
+https://www.codethemap.fr/
+</p>
 
 ESRI EUROPEAN DEVELOPER SUMMIT​
 
