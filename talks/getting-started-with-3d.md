@@ -137,18 +137,6 @@ Browser requirements
 
 ---
 
-<!-- .slide: data-background="images/bg-3.png" -->
-
-### Changing a map from 2D to 3D
-
-- [`Map`](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html) is universal
-- [`MapView`](https://developers.arcgis.com/javascript/latest/api-reference/esri-MapView.html) creates a 2D map
-- [`SceneView`](https://developers.arcgis.com/javascript/latest/api-reference/esri-SceneView.html) creates a 3D map
-
-<span style="font-size: 50%">https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=layers-vectortilelayer</span>
-
----
-
 <!-- .slide: data-background="images/bg-4.png" -->
 
 ## Resources
@@ -322,8 +310,8 @@ map.layers.add(buildingsLayer);
     <ul>
       <li>SceneLayer: <a href="https://www.arcgis.com/home/webscene/viewer.html?webscene=19dcff93eeb64f208d09d328656dd492">3D objects</a></li>
       <li class="fragment"><a href="http://www.arcgis.com/home/webscene/viewer.html?webscene=543648a92446497db8a92c06ce1ad0b1">BuildingSceneLayer</a></li>
-      <li class="fragment"><a href="https://www.arcgis.com/home/webscene/viewer.html?webscene=c2a4c7405ffa447b9e2127987d814af0">PointCloudLayer</a></li>
-      <li class="fragment"><a href="https://www.arcgis.com/home/webscene/viewer.html?webscene=00c36beb1f264698a78ef2677f6a14fd">IntegratedMeshLayer</a></li>
+      <li class="fragment"><a href="https://www.arcgis.com/home/webscene/viewer.html?layers=a455861789b04d699440bff80e1cef59">PointCloudLayer</a></li>
+      <li class="fragment"><a href="https://www.arcgis.com/home/webscene/viewer.html?layers=2883b9baf2f24eabbd3297ea4ee01f14">IntegratedMeshLayer</a></li>
     </ul>
   </li>
 </ul>
