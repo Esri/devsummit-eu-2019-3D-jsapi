@@ -10,6 +10,7 @@ require([
   "polyspline/layers/SplineLayerProxy",
   "animations/layers/LineLayerAnimation",
   "animations/support/interpolate",
+  "./../support/widgets.js",
 ], function(
   WebScene,
   SceneView,
@@ -21,6 +22,7 @@ require([
   SplineLayerProxy,
   LineLayerAnimation,
   interpolate,
+  widgetsSupport,
 ) {
   const exaggeration = 2;
 
@@ -111,6 +113,7 @@ require([
       }
     }
   });
+  widgetsSupport.createFullscreen(view);
 
   //  ca7b360f05c04427b8f57ccba7e6db0a
 

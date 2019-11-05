@@ -46,7 +46,7 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 2. Custom Animations
   * Pure Javascript's Techniques
   * Animation Libraries
-  * Interpolation
+  * Line Animations
   * Smooth Lines
 3. External Renderer
 
@@ -263,7 +263,7 @@ using pure Javascript or libraries.
   <ul>
     <li>Pure Javascript's Techniques</li>
     <li style="opacity: 0.3;">Animation Libraries</li>
-    <li style="opacity: 0.3;">Interpolation</li>
+    <li style="opacity: 0.3;">Line Animations</li>
     <li style="opacity: 0.3;">Smooth Lines</li>
   </ul>
   </li>
@@ -420,7 +420,7 @@ updateAnimationAt(step);
   <ul>
     <li style="opacity: 0.3;">Pure Javascript's Techniques</li>
     <li>Animation Libraries</li>
-    <li style="opacity: 0.3;">Interpolation</li>
+    <li style="opacity: 0.3;">Line Animations</li>
     <li style="opacity: 0.3;">Smooth Lines</li>
   </ul>
   </li>
@@ -549,7 +549,7 @@ Translation & Easing
   <ul>
     <li style="opacity: 0.3;">Pure Javascript's Techniques</li>
     <li style="opacity: 0.3;">Animation Libraries</li>
-    <li>Interpolation</li>
+    <li>Line Animations</li>
     <li style="opacity: 0.3;">Smooth Lines</li>
   </ul>
   </li>
@@ -560,9 +560,9 @@ Translation & Easing
 
 <!-- .slide: data-background="images/bg-2.png" data-title="generalize-wall" -->
 
-### Linear Interpolation
+### Line Animations
 
-Generalize Geometry
+Generalize Geometry using `geometryEngine`
 
 <div class="two-columns">
   <div class="left-column">
@@ -600,7 +600,7 @@ Generalize Geometry
 
 <!-- .slide: data-background="images/bg-2.png" data-title="generalize-wall" -->
 
-### Linear Interpolation
+### Line Animations
 
 Some 2D Math
 
@@ -649,7 +649,7 @@ function lerp2D(pointA, pointB, t) {
 
 <!-- .slide: data-background="images/bg-2.png" data-title="update-camera" -->
 
-### Linear Interpolation
+### Line Animations
 
 Update Camera
 
@@ -700,7 +700,7 @@ requestAnimationFrame(step);</code></pre>
   <ul>
     <li style="opacity: 0.3;">Pure Javascript's Techniques</li>
     <li style="opacity: 0.3;">Animation Libraries</li>
-    <li style="opacity: 0.3;">Interpolation</li>
+    <li style="opacity: 0.3;">Line Animations</li>
     <li>Smooth Lines</li>
   </ul>
   </li>
@@ -709,9 +709,32 @@ requestAnimationFrame(step);</code></pre>
 
 ---
 
+### Smooth Lines
+
+[GeoJSON](http://geojson.io/#id=gist:arnofiva/7f9b30386ba25429070f66cc350b6e2d&map=10/37.1450/25.4402) with simple path
+
+![](./images/animations/2d-cyclades-points.png) <!-- .element: style="width: 60%;" -->
+
+---
+
 <!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" -->
 
-## Sailing Route
+### Smooth Lines
+
+Catmull-Rom Splines
+
+![Catmull-Rom](./images/catmull-rom.svg) <!-- .element: style="width: 50%;" -->
+
+https://www.cubic.org/docs/hermite.htm
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="add-scene-layer" -->
+
+### Smooth Lines
+
+Sailing Trip
 
 <iframe data-src="./samples/cycladecontours" class="fragment">
 
@@ -773,9 +796,21 @@ https://developers.arcgis.com/javascript/latest/sample-code/scene-external-rende
 
 ## Summary
 
-* Some built-in animation capabilities
-* You can create custom animations
-* Extend WebGL engine
+<p class="fragment">Animations make your maps more appealing and intuitive</p>
+
+<div class="fragment">
+
+-
+
+Just examples - (almost) no limitation to what you can do</div>
+
+<div class="fragment">
+
+-
+
+Check [github.com/arnofiva](http://github.com/arnofiva) for slides and source code after DevSummit
+
+</div>
 
 ---
 
