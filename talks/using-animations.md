@@ -771,6 +771,10 @@ requestAnimationFrame(step);</code></pre>
 
 ## Summary
 
+* Some built-in animation capabilities
+* You can create custom animations
+* Extend WebGL engine
+
 ---
 
 <!-- .slide: data-background="images/bg-3.png" -->
