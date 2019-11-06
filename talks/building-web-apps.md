@@ -275,27 +275,273 @@ return layerView.queryFeatures(query).then(results => {
 
 ---
 
-<!-- .slide: data-background="images/bg-2.png" data-background-size="cover" -->
-
-Visualize
-
-![Overview](images/earthquakes/overview.png)
-
----
-
-<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
-
-Client-side Queries
-
-![Overview](images/earthquakes/client-side-filtering.png)
-
----
-
 <!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
 
 ## City Visualizations
 
 ---
+
+<!-- .slide: data-background="images/bg-2.png" -->
+
+## City Visualizations
+
+Add 2D Data
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="add2DData"></button>
+
+```ts
+var osmBuildings = new FeatureLayer({
+  url: "https://.../osm_buildings_berlin/...",
+});
+
+var trees = new FeatureLayer({
+  url: "https://.../open_data_trees_berlin/...",
+
+});
+
+map.add(osmBuildings);
+map.add(trees);
+```
+
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe data-src="./samples/3d-berlin/" ></iframe>
+  </div>
+</div>
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="extrudeOSMBuildings" -->
+
+## City Visualizations
+
+Extrude Buildings
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="extrudeOSMBuildings"></button>
+
+```ts
+osmBuildings.renderer = new SimpleRenderer({
+  symbol: new PolygonSymbol3D({
+    symbolLayers: [
+      new ExtrudeSymbol3DLayer({
+        material: {
+          color: "#FC921F"
+        },
+        edges: {
+          type: "solid",
+          color: "#AF6515"
+        },
+        size: 10,
+      })
+    ]
+  })
+});
+```
+
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe data-src="./samples/3d-berlin/" ></iframe>
+  </div>
+</div>
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="extrudeBuildingHeights" -->
+
+## City Visualizations
+
+Extrude Building Heights
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="extrudeBuildingHeights"></button>
+
+```ts
+// Layer containing building heights
+var buildings = new FeatureLayer({
+  url: "https://.../osm_buildings_berlin/...",
+});
+map.add(buildings);
+
+buildings.renderer = new SimpleRenderer({
+  ...
+
+  visualVariables: [{
+    type: "size",
+    valueExpression: "$feature.AnzahlDerO * 3",
+    valueUnit: "meters"
+  }]
+});
+```
+
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe data-src="./samples/3d-berlin/" ></iframe>
+  </div>
+</div>
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="placeTrees" -->
+
+## City Visualizations
+
+Use `WebStyleSymbol` for Trees
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="placeTrees"></button>
+
+```ts
+var trees = new FeatureLayer({
+  url: "https://.../open_data_trees_berlin/...",
+});
+
+trees.renderer = new SimpleRenderer({
+  symbol: new WebStyleSymbol({
+    styleName: "esriRealisticTreesStyle",
+    name: "Acer",
+  }),
+  visualVariables: [{
+    type: "size",
+    axis: "height",
+    field: "BaumHoehe",
+    valueUnit: "meters"
+  }]
+}
+```
+
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe data-src="./samples/3d-berlin/" ></iframe>
+  </div>
+</div>
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="tempelhof" -->
+
+## City Visualizations
+
+3D Buildings
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="addTempelhof"></button>
+
+```ts
+const tempelhof = new SceneLayer({
+  url: "https://.../airport_tempelhof/...",
+  renderer: new SimpleRenderer({
+
+    // Mesh symbol with light edges
+    symbol: new MeshSymbol3D({
+      symbolLayers: [
+        new FillSymbol3DLayer({
+          type: "fill",
+          material: {
+            color: "white"
+          },
+          edges: {
+            type: "solid",
+            color: "gray",
+            size: 0.3,
+          },
+        })
+      ]
+    })
+
+  })
+});
+```
+
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe data-src="./samples/3d-berlin/" ></iframe>
+  </div>
+</div>
+
+
+---
+
+<!-- .slide: data-background="images/bg-2.png" data-title="sketch" -->
+
+## City Visualizations
+
+Sketch Tools
+
+<div class="two-columns">
+  <div class="left-column">
+
+<div class="code-snippet">
+<button class="play" id="addTempelhof"></button>
+
+```ts
+new SketchViewModel({
+  layer: graphicsLayer,
+  view: view,
+  pointSymbol: new WebStyleSymbol({
+    name: "Airplane_Large_Passenger_With_Wheels",
+    styleName: "EsriRealisticTransportationStyle"
+  }),
+  polygonSymbol: new PolygonSymbol3D({
+    symbolLayers: [
+      new ExtrudeSymbol3DLayer({
+        material: {
+          color: "white"
+        },
+        edges: {
+            type: "sketch",
+            size: "3px",
+            color: "gray"
+          },
+        size: 25,
+      })
+    ]
+  }),
+});
+```
+
+</div>
+
+  </div>
+  <div class="right-column">
+    <iframe data-src="./samples/3d-berlin/" ></iframe>
+  </div>
+</div>
+
+
+---
+
+
 
 <!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
 
