@@ -19,12 +19,6 @@ ESRI EUROPEAN DEVELOPER SUMMIT​
 
 <iframe data-src="./samples/3d-dashboard-earthquake/" style="width: 50%"></iframe>
 
----
-
-<!-- .slide: data-background="images/bg-2.png" data-background-size="cover" -->
-
-## Data
-
 
 ---
 
@@ -458,27 +452,9 @@ trees.renderer = new SimpleRenderer({
 ```ts
 const tempelhof = new SceneLayer({
   url: "https://.../airport_tempelhof/...",
-  renderer: new SimpleRenderer({
-
-    // Mesh symbol with light edges
-    symbol: new MeshSymbol3D({
-      symbolLayers: [
-        new FillSymbol3DLayer({
-          type: "fill",
-          material: {
-            color: "white"
-          },
-          edges: {
-            type: "solid",
-            color: "gray",
-            size: 0.3,
-          },
-        })
-      ]
-    })
-
-  })
 });
+
+map.add(tempelhof);
 ```
 
 </div>
@@ -502,7 +478,6 @@ Sketch Tools
   <div class="left-column">
 
 <div class="code-snippet">
-<button class="play" id="addTempelhof"></button>
 
 ```ts
 new SketchViewModel({
@@ -516,7 +491,7 @@ new SketchViewModel({
     symbolLayers: [
       new ExtrudeSymbol3DLayer({
         material: {
-          color: "white"
+          color: "lemonchiffon"
         },
         edges: {
             type: "sketch",
@@ -541,48 +516,35 @@ new SketchViewModel({
 
 ---
 
+<!-- .slide: data-background="images/bg-2.png" data-title="sketch" -->
+
+## Summary
+
+For this session we used data from
+
+* USGS (https://earthquake.usgs.gov/earthquakes)
+* OpenStreetMap (http://download.geofabrik.de/europe.html)
+* Esri Deutschland Open Data Portal (https://opendata-esri-de.opendata.arcgis.com)
+* Open Data Berlin Portal (https://daten.berlin.de)
 
 
-<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+<blockquote>
 
-2D Data
+Check [https://github.com/arnofiva](http://github.com/arnofiva) for slides and source code after DevSummit
 
-![Overview](images/2d-buildings/data.png)
-
----
-
-<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
-
-Extrude Buildings
-
-![Overview](images/2d-buildings/extrusion.png)
-
----
-
-<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
-
-Use WebStyle Symbols
-
-![Overview](images/2d-buildings/3d-symbols.png)
+</blockquote>
 
 ---
 
-<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+<!-- .slide: data-background="images/bg-3.png" -->
 
-Extrude Building Heights
+Please Take Our Survey on the App
 
-![Overview](images/2d-buildings/extrusion-with-height.png)
-
----
-
-<!-- .slide: data-background="images/bg-4.png"  data-background-size="cover" -->
-
-## 3D Building Models
+![images/survey.png](images/survey.png)
 
 ---
 
-<!-- .slide: data-background="images/bg-2.png"  data-background-size="cover" -->
+<!-- .slide: data-background="images/bg-final.png" -->
 
-Airport Sketch
 
-![Overview](images/3d-buildings/sketch.png)
+

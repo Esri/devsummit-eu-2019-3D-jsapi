@@ -140,25 +140,25 @@
 
   const tempelhof = new SceneLayer({
     url: "https://services1.arcgis.com/wdMHWK8xfn32LjIy/arcgis/rest/services/airport_tempelhof/SceneServer",
-    renderer: {
-      type: "simple",
-      symbol: {
-        type: "mesh-3d",
-        symbolLayers: [
-          {
-            type: "fill",
-            material: {
-              color: "white"
-            },
-            edges: {
-              type: "solid",
-              color: "gray",
-              size: 0.3,
-            },
-          }
-        ]
-      }
-    }
+    // renderer: {
+    //   type: "simple",
+    //   symbol: {
+    //     type: "mesh-3d",
+    //     symbolLayers: [
+    //       {
+    //         type: "fill",
+    //         material: {
+    //           color: "white"
+    //         },
+    //         edges: {
+    //           type: "solid",
+    //           color: "gray",
+    //           size: 0.3,
+    //         },
+    //       }
+    //     ]
+    //   }
+    // }
   });
 
   const treesRenderer = {
@@ -193,7 +193,22 @@
   const view = new SceneView({
     map,
     qualityProfile: "high",
-    environment: {
+    container: "viewDiv",
+
+    // Kreuzberg
+    // camera: {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1495358.9178025671,"y":6890507.341459881,"z":138.29424581490457},"heading":336.66368349177753,"tilt":67.39366243963812}
+
+    // Hilton
+    // camera: {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1491423.6923479987,"y":6892383.902112094,"z":448.3844906128943},"heading":332.2212091407375,"tilt":56.39050499377012},
+
+    camera: {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1491399.4866403823,"y":6890045.272574959,"z":385.22484107967466},"heading":321.3159213896279,"tilt":60.248358962946995}
+
+  });
+  widgetsSupport.createFullscreen(view);
+  view.popup.defaultPopupTemplateEnabled = true
+
+  view.when().then(() => {
+    view.environment = {
       lighting: {
         directShadowsEnabled: true,
       },
@@ -201,16 +216,8 @@
       atmosphere: {
         quality: "high"
       },
-
-    },
-    container: "viewDiv",
-    // camera: {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1495358.9178025671,"y":6890507.341459881,"z":138.29424581490457},"heading":336.66368349177753,"tilt":67.39366243963812}
-    camera: {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1491423.6923479987,"y":6892383.902112094,"z":448.3844906128943},"heading":332.2212091407375,"tilt":56.39050499377012},
-
+    };
   });
-  widgetsSupport.createFullscreen(view);
-  view.popup.defaultPopupTemplateEnabled = true
-
 
 
   const sketchVM = new SketchViewModel({
@@ -228,7 +235,7 @@
           type: "extrude",
           size: 25, // extrude by 10 meters
           material: {
-            color: "white"
+            color: "lemonchiffon"
           },
           edges: {
             type: "sketch",
