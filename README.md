@@ -2,9 +2,9 @@
 
 Presentations for the 3D ArcGIS API for JavaScript at the Esri Developer Summit in Berlin, 4.-6. November 2019.
 
-https://www.esri.com/en-us/about/events/devsummit-europe/agenda/agenda
+See the [event page](https://www.esri.com/en-us/about/events/devsummit-europe/agenda/agenda) for the complete agenda.
 
-## Contents
+## Presentations
 
 ### [Getting Started with 3D](https://arnofiva.github.io/2019-11-devsummit-eu-presentations/getting-started-with-3d.html)
 
