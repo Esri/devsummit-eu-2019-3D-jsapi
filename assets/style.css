@@ -42,10 +42,16 @@ section.title > * > img {
   * GLOBAL STYLES
   *********************************************/
  body {
-   /* http://colorzilla.com/gradient-editor/#0A1146+15,0A1146+15,4DADB7+100 */
-   background: #0A1146;
-   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-   background-color: #fff; }
+   background: #00A1DF;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #00A1DF 15%, #00A1DF 15%, #052C59 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #00A1DF 15%, #00A1DF 15%, #052C59 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(35deg, #00A1DF 15%, #00A1DF 15%, #052C59 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-color: #fff; }
+  }
 
  .reveal {
   font-family: "Avenir Next LT", sans-serif;
@@ -382,16 +388,16 @@ section.title > * > img {
    max-width: 30%;
  }
 
- .reveal .snippet {
+ .reveal .code-snippet {
    position: relative;
    margin-right: 50px;
  }
 
- /*.reveal .twos .snippet {
+ /*.reveal .twos .code-snippet {
    flex-grow: 1;
  }
  */
- .reveal .snippet .play-code {
+ .reveal .code-snippet .play-code {
    position: absolute;
    right: 12px;
    top: 12px;
@@ -400,7 +406,7 @@ section.title > * > img {
    cursor: pointer;
  }
 
- .reveal .snippet .play-code:hover path {
+ .reveal .code-snippet .play-code:hover path {
    fill: #fff;
  }
 
@@ -409,11 +415,11 @@ section.title > * > img {
    width: auto;
  }
 
- .reveal .twos .snippet {
+ .reveal .twos .code-snippet {
    display: flex;
  }
 
- .reveal .twos .snippet pre {
+ .reveal .twos .code-snippet pre {
    display: flex;
  }
 
@@ -724,15 +730,15 @@ section.title > * > img {
    min-height: 389px;
  }
 
- .reveal .snippet {
+ .reveal .code-snippet {
    position: relative;
  }
 
- .reveal .twos .snippet {
+ .reveal .twos .code-snippet {
    flex-grow: 0;
  }
 
- .reveal .snippet .play-code {
+ .reveal .code-snippet .play-code {
    position: absolute;
    right: 12px;
    top: 12px;
@@ -741,16 +747,17 @@ section.title > * > img {
    cursor: pointer;
  }
 
- .reveal .snippet .play-code:hover path {
+ .reveal .code-snippet .play-code:hover path {
    fill: #fff;
  }
 
- .reveal .twos .snippet {
+ .reveal .twos .code-snippet {
    display: flex;
  }
 
- .reveal .twos .snippet pre {
+ .reveal .twos .code-snippet pre {
    display: flex;
+   width: 100%;
  }
 
  .reveal .twos pre {
@@ -793,3 +800,86 @@ section.title > * > img {
  /* .reveal .slide-background {
    background-image: url("../images/bg-3.png");
  } */
+.letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.reveal .letter3d, #animation .letter{
+    /*position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);*/
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 1em;
+    font-weight: 700;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+.appear {
+  opacity: 0;
+  transform: scale(0.2);
+  transition: opacity 0.5s ease-in, transform 0.3s ease-in-out;
+}
+
+.present .appear {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.big-code {
+  font-family: monospace;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+}
+
+#menu h1, #menu h2, #menu h3, #menu h4, #menu p, #menu div {
+  color: #333;
+}
+
+#menu {
+  color:#333;
+  width: 400px;
+  margin: auto;
+  padding: 1em;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+#waveSlider {
+  height: 50px;
+  margin-top: 2em;
+}
+
+.color-btn {
+  border: 1px solid rgb(173, 172, 172);
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#navy {
+  background-color: #25427c;
+}
+
+#green {
+  background-color: #039962;
+}
+
+#turqoise {
+  background-color: #a2f9f5;
+}
