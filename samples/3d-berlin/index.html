@@ -68,11 +68,13 @@
   "./../support/widgets.js",
   "esri/layers/GraphicsLayer",
   "esri/widgets/Sketch/SketchViewModel",
+  "esri/renderers/SimpleRenderer",
   "dojo/domReady!"
 ], function (
   FeatureLayer, SceneLayer,
   Map, SceneView, promiseUtils, Graphic, watchUtils,
   widgetsSupport, GraphicsLayer, SketchViewModel,
+  SimpleRenderer,
 ) {
 
   const osmBuildings = new FeatureLayer({
@@ -135,7 +137,8 @@
 
   const trees = new FeatureLayer({
     // url: "https://services2.arcgis.com/cFEFS0EWrhfDeVw9/arcgis/rest/services/Baum_Berlin_Auswahl/FeatureServer",
-    url: "https://services1.arcgis.com/wdMHWK8xfn32LjIy/arcgis/rest/services/open_data_trees_berlin/FeatureServer"
+    url: "https://services1.arcgis.com/wdMHWK8xfn32LjIy/arcgis/rest/services/open_data_trees_berlin/FeatureServer",
+    outFields: ["*"],
   });
 
   const tempelhof = new SceneLayer({
@@ -161,8 +164,7 @@
     // }
   });
 
-  const treesRenderer = {
-    type: "simple", // autocasts as new SimpleRenderer()
+  const treesRenderer = new SimpleRenderer({
     symbol: {
       type: "web-style", // autocasts as new WebStyleSymbol()
       styleName: "esriRealisticTreesStyle",
@@ -177,7 +179,11 @@
         valueUnit: "meters"
       }
     ]
-  };
+  });
+
+  treesRenderer.symbol.fetchSymbol().then(symbol => {
+    treesRenderer.symbol = symbol;
+  });
 
   const tempelhofCamera = {"position":{"spatialReference":{"latestWkid":3857,"wkid":102100},"x":1489966.7047925212,"y":6885760.567277861,"z":708.2160057434812},"heading":23.110747392181548,"tilt":55.90341072434484};
 
