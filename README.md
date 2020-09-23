@@ -52,7 +52,7 @@ Animations are a great way to set your web app apart and also make it more infor
 
 ## Installation & Contributing
 
-Esri welcomes contributions from anyone and everyone. Please see[CONTRIBUTING.md](https://github.com/Esri/devsummit-eu-2019-3D-jsapi/blob/master/CONTRIBUTING.md) for more details.
+Esri welcomes contributions from anyone and everyone. Please see [CONTRIBUTING.md](https://github.com/Esri/devsummit-eu-2019-3D-jsapi/blob/master/CONTRIBUTING.md) for more details.
 
 ## Licensing
 Copyright 2020 Esri
